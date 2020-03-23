@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public class ListAvailableItineraryOptions implements Serializable {
 
 	/**
-	 * 
+	 * The following is the class variable for Serializable, along with the instance variables
+	 * refer to class diagram, which defines what must be included in this class
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -65,6 +66,7 @@ public class ListAvailableItineraryOptions implements Serializable {
 		return serialVersionUID;
 	}
 
+	//Constructor 
 	public ListAvailableItineraryOptions(double cost, int departureTimeOffset, int legs) {
 		super();
 		this.cost = cost;
@@ -72,6 +74,7 @@ public class ListAvailableItineraryOptions implements Serializable {
 		this.legs = legs;
 	}
 
+	//method to create a list of the available flight options
 	public ArrayList<Object> optionsList(double cost, int departureTimeOffset, int legs) {
 
 		SearchFlightInformation flightinfo = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA",
@@ -91,6 +94,7 @@ public class ListAvailableItineraryOptions implements Serializable {
 		return list;
 	}
 
+	//validate method for JUnit testing
 	public boolean validate() {
 
 		if (cost == 0.00)
@@ -103,6 +107,7 @@ public class ListAvailableItineraryOptions implements Serializable {
 		return true;
 	}
 
+	//overriding hashCode method 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -115,6 +120,7 @@ public class ListAvailableItineraryOptions implements Serializable {
 		return result;
 	}
 
+	//overriding equals method for JUnit testing
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -133,6 +139,7 @@ public class ListAvailableItineraryOptions implements Serializable {
 		return true;
 	}
 
+	//overriding toString method for printing the object
 	@Override
 	public String toString() {
 		return "ListAvailableItineraryOptions [cost=" + cost + ", departureTimeOffset=" + departureTimeOffset

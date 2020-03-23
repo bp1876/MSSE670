@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public class SearchFlightInformation implements Serializable {
 
 	/**
-	 * 
+	 * The following fields are the class variable for Serializable and instance variables
+	 * as outlined in the class diagram
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -161,6 +162,7 @@ public class SearchFlightInformation implements Serializable {
 		return serialVersionUID;
 	}
 
+	//Constructor
 	public SearchFlightInformation(String departureDate, String departureTime, String departureLocation,
 			String arrivalDate, String arrivalTime, String arrivalLocation, int numerOfPassengers, boolean oneWay,
 			boolean roundTrip) {
@@ -176,6 +178,8 @@ public class SearchFlightInformation implements Serializable {
 		this.roundTrip = roundTrip;
 	}
 
+	//Method to search flights by inputting desired search criteria and then saving it to a list
+	@SuppressWarnings("rawtypes")
 	public ArrayList<Comparable> searchFlights(String departureDate, String departureTime, String departureLocation,
 			String arrivalDate, String arrivalTime, String arrivalLocation, int numerOfPassengers, boolean oneWay,
 			boolean roundTrip) {
@@ -193,7 +197,9 @@ public class SearchFlightInformation implements Serializable {
 
 		return list;
 	}
-
+	
+	
+    //overriding the hashCode method
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -210,6 +216,7 @@ public class SearchFlightInformation implements Serializable {
 		return result;
 	}
 
+	//overriding the equals method
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -258,6 +265,7 @@ public class SearchFlightInformation implements Serializable {
 		return true;
 	}
 
+	//validate method for JUnit testing
 	public boolean validate() {
 
 		if (departureDate == "")
@@ -282,6 +290,7 @@ public class SearchFlightInformation implements Serializable {
 		return true;
 	}
 
+	//overriding toString method to print the object
 	@Override
 	public String toString() {
 		return "SearchFlightInformation [departureDate=" + departureDate + ", departureTime=" + departureTime

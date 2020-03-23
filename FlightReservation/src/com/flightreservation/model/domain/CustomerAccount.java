@@ -11,8 +11,9 @@ import java.util.regex.Pattern;
 public class CustomerAccount implements Serializable {
 
 	/**
-		 * 
-		 */
+	 * The following are the class instance and instance variables that are needed for the class 
+	 * as outlined in the Class Diagram
+	 */
 	private static final long serialVersionUID = 1L;
 
 	private String name;
@@ -33,62 +34,118 @@ public class CustomerAccount implements Serializable {
 		return name;
 	}
 
+	/**
+	 * 
+	 * @param  set name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * 
+	 * @return address
+	 */
 	public String getAddress() {
 		return address;
 	}
 
+	/**
+	 * 
+	 * @param set address
+	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+	/**
+	 * 
+	 * @return email
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 * 
+	 * @param set email
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	/**
+	 * 
+	 * @return get the 16 digit credit card number
+	 */
 	public int getCreditCardSixteenNumber() {
 		return creditCardSixteenNumber;
 	}
 
+	/**
+	 * 
+	 * @param set creditCardSixteenNumber
+	 */
 	public void setCreditCardSixteenNumber(int creditCardSixteenNumber) {
 		this.creditCardSixteenNumber = creditCardSixteenNumber;
 	}
-
+	
+	/**
+	 * 
+	 * @return get the 4 digit credit card expire date
+	 */
 	public int getCreditCardExpireDate() {
 		return creditCardExpireDate;
 	}
 
+	/**
+	 * 
+	 * @param set creditCardExpireDate
+	 */
 	public void setCreditCardExpireDate(int creditCardExpireDate) {
 		this.creditCardExpireDate = creditCardExpireDate;
 	}
-
+	
+	/**
+	 * 
+	 * @return userName
+	 */
 	public String getUserName() {
 		return userName;
 	}
 
+	/**
+	 * 
+	 * @param set userName
+	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
+	/**
+	 * 
+	 * @return password
+	 */
 	public String getPassword() {
 		return password;
 	}
 
+	/**
+	 * 
+	 * @param set password
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	/**
+	 * 
+	 * @return get Serial version id 
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
+	//validate method for JUnit testing
 	public boolean validate() {
 
 		if (name == "")
@@ -109,11 +166,8 @@ public class CustomerAccount implements Serializable {
 		return true;
 	}
 
-	
-
-
-
 	/**
+	 * Constructor for:
 	 * @param name
 	 * @param address
 	 * @param email
@@ -134,6 +188,7 @@ public class CustomerAccount implements Serializable {
 		this.password = password;
 	}
 
+	//method to register customer into Serializable 
 	public void registerCustomer() {
 
 		CustomerAccount ca = new CustomerAccount(name, address, email, creditCardExpireDate, creditCardExpireDate,
@@ -145,6 +200,7 @@ public class CustomerAccount implements Serializable {
 
 	}
 
+	//method to register credit card information into Serializable
 	public void registerCreditCardInformation(int creditCardSixteenNumber, int creditCardExpireDate) {
 
 		Pattern num = Pattern.compile("(creditCardSixteenNumber)( \\d{16})");
@@ -158,6 +214,7 @@ public class CustomerAccount implements Serializable {
 
 	}
 
+	//overriding hashCode method
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -172,6 +229,7 @@ public class CustomerAccount implements Serializable {
 		return result;
 	}
 
+	//overriding equals method for JUnit testing
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -213,6 +271,7 @@ public class CustomerAccount implements Serializable {
 		return true;
 	}
 
+	//toString method for printing the object
 	@Override
 	public String toString() {
 		return "CustomerAccount [name=" + name + ", address=" + address + ", email=" + email

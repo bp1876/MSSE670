@@ -5,10 +5,13 @@ import java.io.Serializable;
 public class BookItinerary extends ReserveItinerary implements Serializable {
 
 	/**
-	 * 
+	 * Brenda Palmer
 	 */
+	
+	//class variable for the interface Serializable
 	private static final long serialVersionUID = 1L;
 
+	//instance variable for flight booked field
 	private boolean flightBooked;
 
 	/**
@@ -32,11 +35,13 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 		return serialVersionUID;
 	}
 
+	//Constructor that also includes parent classes fields
 	public BookItinerary(double cost, int departureTimeOffset, int legs, boolean selectList, boolean flightBooked) {
 		super(cost, departureTimeOffset, legs, selectList);
 		this.flightBooked = flightBooked;
 	}
 
+	//method to check if flight is reserved and if so then flight will be booked
 	public void bookFlight(boolean flightReserved) {
 
 		if (flightReserved == true) {
@@ -49,6 +54,7 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 		}
 	}
 
+	//validate method for JUnit testing
 	public boolean validate() {
 
 		if (flightBooked == false)
@@ -57,6 +63,7 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 		return true;
 	}
 
+	//overriding hashCode method
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -65,6 +72,7 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 		return result;
 	}
 
+	//overriding equals method for JUnit testing
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -79,6 +87,7 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 		return true;
 	}
 
+	//overriding toString method for printing an object
 	@Override
 	public String toString() {
 		return "BookItinerary [flightBooked=" + flightBooked + "]";

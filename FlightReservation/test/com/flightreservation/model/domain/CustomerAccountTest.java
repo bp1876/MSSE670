@@ -12,7 +12,7 @@ public class CustomerAccountTest {
 
 		CustomerAccount customer = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
 
-		//
+		// Testing that the arguments passed are valid
 		assertTrue(customer.validate(), "Customer validates");
 
 		System.out.println("testValidates Passes");
@@ -24,7 +24,7 @@ public class CustomerAccountTest {
 
 		CustomerAccount customer = new CustomerAccount("", "1234 place", "me@aol.com", 16, 4, "user", "pass");
 
-		//
+		// Testing that the arguments passed are invalid
 		assertFalse(customer.validate(), "Customer does not validate");
 
 		System.out.println("testNOTValidates Passes");
@@ -37,6 +37,7 @@ public class CustomerAccountTest {
 		CustomerAccount customer1 = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
 		CustomerAccount customer2 = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
 
+		// Testing that the arguments for both objects are a match
 		assertTrue(customer1.equals(customer2), "customer1 equals customer2");
 
 		System.out.println("testEqualsCustomerAccount Passes");
@@ -48,6 +49,7 @@ public class CustomerAccountTest {
 		CustomerAccount customer1 = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
 		CustomerAccount customer2 = new CustomerAccount("fred", "1234 place", "me@aol.com", 16, 4, "user", "pass");
 
+		// Testing that the arguments for both objects are not a match
 		assertFalse(customer1.equals(customer2), "customer1 does not equals customer2");
 
 		System.out.println("testNotEqualsCustomerAccount Passes");

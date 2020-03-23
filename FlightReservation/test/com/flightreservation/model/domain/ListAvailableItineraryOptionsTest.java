@@ -12,6 +12,7 @@ public class ListAvailableItineraryOptionsTest {
 		
 		ListAvailableItineraryOptions optionsList = new ListAvailableItineraryOptions(500.99, 1, 1);
 		
+		//Testing that the arguments passed are valid
 		assertTrue(optionsList.validate(), "optionsList Validates");
 		
 		System.out.println("testValidates Passes");
@@ -23,6 +24,7 @@ public class ListAvailableItineraryOptionsTest {
 		
 		ListAvailableItineraryOptions optionsList = new ListAvailableItineraryOptions(500.99, 3, 3);
 		
+		//Testing that the arguments passed are invalid 
 		assertFalse(optionsList.validate(), "optionsList does not validate");
 		
 		System.out.println("testNotValidates Passes");
@@ -35,6 +37,7 @@ public class ListAvailableItineraryOptionsTest {
 		ListAvailableItineraryOptions optionsList1 = new ListAvailableItineraryOptions(500.99, 1, 1);
 		ListAvailableItineraryOptions optionsList2 = new ListAvailableItineraryOptions(500.99, 1, 1);
 		
+		//Testing that the arguments for both objects are a match
 		assertTrue(optionsList1.equals(optionsList2), "optionsList1 equals optionsList2");
 		
 		System.out.println("testEquals Passes");
@@ -46,6 +49,7 @@ public class ListAvailableItineraryOptionsTest {
 		ListAvailableItineraryOptions optionsList1 = new ListAvailableItineraryOptions(500.99, 1, 1);
 		ListAvailableItineraryOptions optionsList2 = new ListAvailableItineraryOptions(99.10, 1, 1);
 		
+		//Testing that the arguments for both objects are not a match
 		assertFalse(optionsList1.equals(optionsList2), "optionsList1 does not equal optionsList2");
 		
 		System.out.println("testNotEquals Passes");
