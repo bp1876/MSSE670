@@ -42,5 +42,12 @@ public class ReserveItineraryServiceTest extends TestCase {
 		assertTrue(iris.reserveFlight(reserveflight));
 		System.out.println("testReserveFlight Passed");
 	}
+	
+	public final void testNullReserveFlight() {
+
+		IReserveItineraryService iris = sf.getRI();
+		assertTrue(iris.reserveFlight(null));
+		System.out.println("testNullReserveFlight Passed");
+	}
 
 }

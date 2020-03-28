@@ -43,4 +43,10 @@ public class CustomerAccountServiceTest extends TestCase {
 		System.out.println("testauthenticateCreditCard Passed");
 	}
 
+	public final void testNullAuthenticateCreditCard() {
+
+		ICustomerAccountService cas = sf.getCustomerAccount();
+		assertTrue(cas.authenticateCreditCard(null));
+		System.out.println("testNullAuthenticateCreditCard Passed");
+	}
 }

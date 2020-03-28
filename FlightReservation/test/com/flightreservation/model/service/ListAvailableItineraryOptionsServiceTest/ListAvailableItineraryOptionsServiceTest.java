@@ -41,6 +41,16 @@ public class ListAvailableItineraryOptionsServiceTest extends TestCase {
 		IListAvailableItineraryOptionsService ilaios = sf.getLAIO();
 		assertTrue(ilaios.optionsList(optionsList));
 		System.out.println("testListOptions Passed");
+		
+		assertTrue(ilaios.optionsList(null));
+		System.out.println("testListOptions with NULL Passed");
+
+	}
+	public final void testNullListOptions() {
+
+		IListAvailableItineraryOptionsService ilaios = sf.getLAIO();
+		assertTrue(ilaios.optionsList(null));
+		System.out.println("testListOptions with NULL Passed");
 
 	}
 }

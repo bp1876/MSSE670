@@ -42,5 +42,13 @@ public class SearchFlightInformationServiceTest extends TestCase {
 		System.out.println("testSearchFlights Passed");
 
 	}
+	
+	public final void testNullSearchFlights() {
+
+		ISearchFlightInformationService isfis = sf.getSFI();
+		assertTrue(isfis.searchFlights(null));
+		System.out.println("testNullSearchFlights Passed");
+
+	}
 
 }

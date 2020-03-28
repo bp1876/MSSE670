@@ -40,6 +40,14 @@ public class LoginServiceTest extends TestCase {
 		ILoginService ils = sf.getLogin();
 		assertTrue(ils.authenticateUser(login));
 		System.out.println("testauthenticateUser Passed");
+		
 	}
 
+	public final void testNullAuthenticateUser() {
+		
+		ILoginService ils = sf.getLogin();
+		assertTrue(ils.authenticateUser(null));
+		System.out.println("testNullAuthenticateUser Passed");
+		
+	}
 }

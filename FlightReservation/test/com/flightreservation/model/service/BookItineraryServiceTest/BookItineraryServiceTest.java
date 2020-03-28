@@ -42,4 +42,10 @@ public class BookItineraryServiceTest extends TestCase {
 		System.out.println("testBookFlight Passed");
 	}
 
+	public final void testNullBookFlight() {
+
+		IBookItineraryService ibis = sf.getBI();
+		assertTrue(ibis.bookFlight(null));
+		System.out.println("testNullBookFlight Passed");
+	}
 }
