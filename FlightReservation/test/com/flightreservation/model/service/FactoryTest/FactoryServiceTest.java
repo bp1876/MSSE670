@@ -3,24 +3,21 @@
  */
 package com.flightreservation.model.service.FactoryTest;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.fail;
+
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.flightreservation.model.service.bookitineraryservice.BookItineraryImpl;
+import com.flightreservation.model.business.exception.ServiceLoadingException;
 import com.flightreservation.model.service.bookitineraryservice.IBookItineraryService;
-import com.flightreservation.model.service.customeraccountservice.CustomerAccountImpl;
 import com.flightreservation.model.service.customeraccountservice.ICustomerAccountService;
 import com.flightreservation.model.service.factory.Factory;
 import com.flightreservation.model.service.listavailableitineraryoptionsservice.IListAvailableItineraryOptionsService;
-import com.flightreservation.model.service.listavailableitineraryoptionsservice.ListAvailableItineraryOptionsImpl;
 import com.flightreservation.model.service.loginservice.ILoginService;
-import com.flightreservation.model.service.loginservice.LoginServiceImpl;
 import com.flightreservation.model.service.reserveitineraryservice.IReserveItineraryService;
-import com.flightreservation.model.service.reserveitineraryservice.ReserveItineraryImpl;
 import com.flightreservation.model.service.searchflightinformationservice.ISearchFlightInformationService;
-import com.flightreservation.model.service.searchflightinformationservice.SearchFlightInformationImpl;
+
 
 /**
  * @author Brenda Palmer
@@ -49,8 +46,16 @@ public class FactoryServiceTest {
 	@Test
 	public void testauthenticateCreditCard() {
 
-		ICustomerAccountService icas = (ICustomerAccountService) serviceFactory.getCustomerAccount();
-		assertTrue(icas instanceof CustomerAccountImpl);
+		@SuppressWarnings("unused")
+		ICustomerAccountService icas;
+		try{
+			icas = (ICustomerAccountService)serviceFactory.getService(ICustomerAccountService.NAME);
+			System.out.println("testauthenticateCreditCard Passed");
+		}catch(ServiceLoadingException e) {
+		
+			e.printStackTrace();
+			fail("ServiceLoadingException");
+		}
 
 	}
 
@@ -65,8 +70,17 @@ public class FactoryServiceTest {
 	@Test
 	public void testauthenticateUser() {
 
-		ILoginService ils = (ILoginService) serviceFactory.getLogin();
-		assertTrue(ils instanceof LoginServiceImpl);
+		@SuppressWarnings("unused")
+		ILoginService ils;
+		
+		try{
+			ils = (ILoginService)serviceFactory.getService(ILoginService.NAME);
+			System.out.println("testauthenticateUser Passed");
+		}catch(ServiceLoadingException e) {
+		
+			e.printStackTrace();
+			fail("ServiceLoadingException");
+		}
 	}
 
 	/**
@@ -80,8 +94,16 @@ public class FactoryServiceTest {
 	@Test
 	public void testSearchFlights() {
 
-		ISearchFlightInformationService isfis = (ISearchFlightInformationService) serviceFactory.getSFI();
-		assertTrue(isfis instanceof SearchFlightInformationImpl);
+		@SuppressWarnings("unused")
+		ISearchFlightInformationService isfis;
+		try{
+			isfis = (ISearchFlightInformationService)serviceFactory.getService(ISearchFlightInformationService.NAME);
+			System.out.println("testSearchFlights Passed");
+		}catch(ServiceLoadingException e) {
+		
+			e.printStackTrace();
+			fail("ServiceLoadingException");
+		}
 	}
 
 	/**
@@ -95,8 +117,17 @@ public class FactoryServiceTest {
 	@Test
 	public void testListOptions() {
 
-		IListAvailableItineraryOptionsService ilaios = (IListAvailableItineraryOptionsService) serviceFactory.getLAIO();
-		assertTrue(ilaios instanceof ListAvailableItineraryOptionsImpl);
+		@SuppressWarnings("unused")
+		IListAvailableItineraryOptionsService ilaios;
+		
+		try{
+			ilaios = (IListAvailableItineraryOptionsService)serviceFactory.getService(IListAvailableItineraryOptionsService.NAME);
+			System.out.println("testListOptions Passed");
+		}catch(ServiceLoadingException e) {
+		
+			e.printStackTrace();
+			fail("ServiceLoadingException");
+		}
 	}
 
 	/**
@@ -110,8 +141,17 @@ public class FactoryServiceTest {
 	@Test
 	public void testReserveItinerary() {
 
-		IReserveItineraryService iris = (IReserveItineraryService) serviceFactory.getRI();
-		assertTrue(iris instanceof ReserveItineraryImpl);
+		@SuppressWarnings("unused")
+		IReserveItineraryService iris;
+		
+		try{
+			iris = (IReserveItineraryService)serviceFactory.getService(IReserveItineraryService.NAME);
+			System.out.println("testReserveItinerary Passed");
+		}catch(ServiceLoadingException e) {
+		
+			e.printStackTrace();
+			fail("ServiceLoadingException");
+		}
 	}
 
 	/**
@@ -125,8 +165,17 @@ public class FactoryServiceTest {
 	@Test
 	public void testBookItinerary() {
 
-		IBookItineraryService ibis = (IBookItineraryService) serviceFactory.getBI();
-		assertTrue(ibis instanceof BookItineraryImpl);
+		@SuppressWarnings("unused")
+		IBookItineraryService ibis;
+		
+		try{
+			ibis = (IBookItineraryService)serviceFactory.getService(IBookItineraryService.NAME);
+			System.out.println("testBookItinerary Passed");
+		}catch(ServiceLoadingException e) {
+		
+			e.printStackTrace();
+			fail("ServiceLoadingException");
+		}
 	}
 
 }

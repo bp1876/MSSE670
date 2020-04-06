@@ -1,6 +1,8 @@
 package com.flightreservation.model.service.loginservice;
 
-import com.flightreservation.model.domain.Login;
+import com.flightreservation.model.domain.FlightReservationComposite;
+import com.flightreservation.model.service.IService;
+import com.flightreservation.model.service.exception.InvalidLoginException;
 
 /**
  * @author Brenda Palmer
@@ -8,8 +10,10 @@ import com.flightreservation.model.domain.Login;
  */
 
 //Interface for LoginService
-public interface ILoginService {
+public interface ILoginService extends IService{
+	
+	public final String NAME = "ILoginService";
 
-	public boolean authenticateUser(Login login);
+	public boolean authenticateUser(FlightReservationComposite frc) throws InvalidLoginException;
 
 }

@@ -6,8 +6,6 @@ package com.flightreservation.model.service.BookItineraryServiceTest;
 import org.junit.jupiter.api.BeforeEach;
 
 import com.flightreservation.model.domain.BookItinerary;
-import com.flightreservation.model.service.bookitineraryservice.IBookItineraryService;
-import com.flightreservation.model.service.factory.Factory;
 
 import junit.framework.TestCase;
 
@@ -17,8 +15,8 @@ import junit.framework.TestCase;
  */
 public class BookItineraryServiceTest extends TestCase {
 
-	private Factory sf;
-	private BookItinerary book;
+	
+	private BookItinerary book1, book2;
 
 	/**
 	 * @throws java.lang.Exception
@@ -27,7 +25,10 @@ public class BookItineraryServiceTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		sf = new Factory();
+		
+		
+		book1 = new BookItinerary(588.10, 1, 1, true, true);
+		book2 = new BookItinerary(588.10, 1, 1, true, true);
 	}
 
 	/**
@@ -37,15 +38,15 @@ public class BookItineraryServiceTest extends TestCase {
 
 	public final void testBookFlight() {
 
-		IBookItineraryService ibis = sf.getBI();
-		assertTrue(ibis.bookFlight(book));
+		
+		assertTrue("book1 validates", book1.validate());
 		System.out.println("testBookFlight Passed");
 	}
 
-	public final void testNullBookFlight() {
+	public final void testEqualsBookFlight() {
 
-		IBookItineraryService ibis = sf.getBI();
-		assertTrue(ibis.bookFlight(null));
-		System.out.println("testNullBookFlight Passed");
+		
+		assertTrue("book1 equals book2", book1.equals(book2));
+		System.out.println("testEqualsBookFlight Passed");
 	}
 }

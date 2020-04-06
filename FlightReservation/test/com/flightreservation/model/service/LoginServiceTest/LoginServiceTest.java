@@ -3,8 +3,7 @@ package com.flightreservation.model.service.LoginServiceTest;
 import org.junit.jupiter.api.BeforeEach;
 
 import com.flightreservation.model.domain.Login;
-import com.flightreservation.model.service.factory.Factory;
-import com.flightreservation.model.service.loginservice.ILoginService;
+
 
 import junit.framework.TestCase;
 
@@ -15,8 +14,7 @@ import junit.framework.TestCase;
 
 public class LoginServiceTest extends TestCase {
 
-	private Factory sf;
-	private Login login;
+	private Login login1, login2;
 
 	/**
 	 * @throws java.lang.Exception
@@ -25,9 +23,9 @@ public class LoginServiceTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		sf = new Factory();
-
-		login = new Login("brenda", "pass");
+		
+		login1 = new Login("brenda", "pass");
+		login2 = new Login("brenda", "pass");
 
 	}
 
@@ -37,17 +35,17 @@ public class LoginServiceTest extends TestCase {
 	 */
 	public final void testauthenticateUser() {
 
-		ILoginService ils = sf.getLogin();
-		assertTrue(ils.authenticateUser(login));
+		
+		assertTrue("Login validates", login1.validate());
 		System.out.println("testauthenticateUser Passed");
 		
 	}
 
-	public final void testNullAuthenticateUser() {
+	public final void testEqualsAuthenticateUser() {
 		
-		ILoginService ils = sf.getLogin();
-		assertTrue(ils.authenticateUser(null));
-		System.out.println("testNullAuthenticateUser Passed");
+		
+		assertTrue("login1 equals login2", login1.equals(login2));
+		System.out.println("testEqualsAuthenticateUser Passed");
 		
 	}
 }

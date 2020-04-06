@@ -6,8 +6,8 @@ package com.flightreservation.model.service.ListAvailableItineraryOptionsService
 import org.junit.jupiter.api.BeforeEach;
 
 import com.flightreservation.model.domain.ListAvailableItineraryOptions;
-import com.flightreservation.model.service.factory.Factory;
-import com.flightreservation.model.service.listavailableitineraryoptionsservice.IListAvailableItineraryOptionsService;
+
+
 
 import junit.framework.TestCase;
 
@@ -17,8 +17,8 @@ import junit.framework.TestCase;
  */
 public class ListAvailableItineraryOptionsServiceTest extends TestCase {
 
-	private Factory sf;
-	private ListAvailableItineraryOptions optionsList;
+	
+	private ListAvailableItineraryOptions optionsList1, optionsList2;
 
 	/**
 	 * @throws java.lang.Exception
@@ -27,9 +27,10 @@ public class ListAvailableItineraryOptionsServiceTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		sf = new Factory();
+	
 
-		optionsList = new ListAvailableItineraryOptions(500.99, 1, 1);
+		optionsList1 = new ListAvailableItineraryOptions(500.99, 1, 1);
+		optionsList2 = new ListAvailableItineraryOptions(500.99, 1, 1);
 	}
 
 	/**
@@ -38,19 +39,17 @@ public class ListAvailableItineraryOptionsServiceTest extends TestCase {
 	 */
 	public final void testListOptions() {
 
-		IListAvailableItineraryOptionsService ilaios = sf.getLAIO();
-		assertTrue(ilaios.optionsList(optionsList));
+		
+		assertTrue("optionsList1 validates", optionsList1.validate());
 		System.out.println("testListOptions Passed");
 		
-		assertTrue(ilaios.optionsList(null));
-		System.out.println("testListOptions with NULL Passed");
-
+		
 	}
-	public final void testNullListOptions() {
+	public final void testEqualsListOptions() {
 
-		IListAvailableItineraryOptionsService ilaios = sf.getLAIO();
-		assertTrue(ilaios.optionsList(null));
-		System.out.println("testListOptions with NULL Passed");
+		
+		assertTrue("optionsList1 equals optionsList1", optionsList1.equals(optionsList2));
+		System.out.println("testEqualsListOptions Passed");
 
 	}
 }

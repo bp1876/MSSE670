@@ -6,8 +6,7 @@ package com.flightreservation.model.service.SearchFlightInformationServiceTest;
 import org.junit.jupiter.api.BeforeEach;
 
 import com.flightreservation.model.domain.SearchFlightInformation;
-import com.flightreservation.model.service.factory.Factory;
-import com.flightreservation.model.service.searchflightinformationservice.ISearchFlightInformationService;
+
 
 import junit.framework.TestCase;
 
@@ -17,8 +16,8 @@ import junit.framework.TestCase;
  */
 public class SearchFlightInformationServiceTest extends TestCase {
 
-	private Factory sf;
-	private SearchFlightInformation flightinfo;
+	
+	private SearchFlightInformation flightinfo1, flightinfo2;
 
 	/**
 	 * @throws java.lang.Exception
@@ -27,8 +26,9 @@ public class SearchFlightInformationServiceTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		sf = new Factory();
-		flightinfo = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA", 2, false, true);
+		
+		flightinfo1 = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA", 2, true, true);
+		flightinfo2 = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA", 2, true, true);
 	}
 
 	/**
@@ -37,17 +37,17 @@ public class SearchFlightInformationServiceTest extends TestCase {
 	 */
 	public final void testSearchFlights() {
 
-		ISearchFlightInformationService isfis = sf.getSFI();
-		assertTrue(isfis.searchFlights(flightinfo));
+		
+		assertTrue("flightinfo1 validates", flightinfo1.validate());
 		System.out.println("testSearchFlights Passed");
 
 	}
 	
-	public final void testNullSearchFlights() {
+	public final void testEqualsSearchFlights() {
 
-		ISearchFlightInformationService isfis = sf.getSFI();
-		assertTrue(isfis.searchFlights(null));
-		System.out.println("testNullSearchFlights Passed");
+		
+		assertTrue("flightinfo1 equals flightinfo2", flightinfo1.equals(flightinfo2));
+		System.out.println("testEqualsSearchFlights Passed");
 
 	}
 

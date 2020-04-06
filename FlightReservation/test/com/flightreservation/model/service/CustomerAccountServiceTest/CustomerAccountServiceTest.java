@@ -6,8 +6,7 @@ package com.flightreservation.model.service.CustomerAccountServiceTest;
 import org.junit.jupiter.api.BeforeEach;
 
 import com.flightreservation.model.domain.CustomerAccount;
-import com.flightreservation.model.service.customeraccountservice.ICustomerAccountService;
-import com.flightreservation.model.service.factory.Factory;
+
 
 import junit.framework.TestCase;
 
@@ -17,8 +16,8 @@ import junit.framework.TestCase;
  */
 public class CustomerAccountServiceTest extends TestCase {
 
-	private Factory sf;
-	private CustomerAccount customeraccount;
+	
+	private CustomerAccount customeraccount1, customeraccount2;
 
 	/**
 	 * @throws java.lang.Exception
@@ -27,9 +26,10 @@ public class CustomerAccountServiceTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		sf = new Factory();
+	
 
-		customeraccount = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+		customeraccount1 = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+		customeraccount2 = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
 	}
 
 	/**
@@ -38,15 +38,14 @@ public class CustomerAccountServiceTest extends TestCase {
 	 */
 	public final void testauthenticateCreditCard() {
 
-		ICustomerAccountService cas = sf.getCustomerAccount();
-		assertTrue(cas.authenticateCreditCard(customeraccount));
+		
+		assertTrue("CustomerAccount validates", customeraccount1.validate());
 		System.out.println("testauthenticateCreditCard Passed");
 	}
 
-	public final void testNullAuthenticateCreditCard() {
+	public final void testEqualsAuthenticateCreditCard() {
 
-		ICustomerAccountService cas = sf.getCustomerAccount();
-		assertTrue(cas.authenticateCreditCard(null));
-		System.out.println("testNullAuthenticateCreditCard Passed");
+		assertTrue("customeraccount1 equals customeraccount2", customeraccount1.equals(customeraccount2));
+		System.out.println("testEqualsAuthenticateCreditCard Passed");
 	}
 }

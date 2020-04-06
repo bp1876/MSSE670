@@ -1,6 +1,8 @@
 package com.flightreservation.model.service.reserveitineraryservice;
 
-import com.flightreservation.model.domain.ReserveItinerary;
+import com.flightreservation.model.domain.FlightReservationComposite;
+import com.flightreservation.model.service.IService;
+import com.flightreservation.model.service.exception.InvalidReserveFlightException;
 
 /**
  * @author Brenda Palmer
@@ -8,8 +10,10 @@ import com.flightreservation.model.domain.ReserveItinerary;
  */
 
 //Interface for ReserveItineraryService
-public interface IReserveItineraryService {
+public interface IReserveItineraryService extends IService{
+	
+	public final String NAME = "IReserveItineraryService";
 
-	public boolean reserveFlight(ReserveItinerary ri);
+	public boolean reserveFlight(FlightReservationComposite frc) throws InvalidReserveFlightException;
 
 }

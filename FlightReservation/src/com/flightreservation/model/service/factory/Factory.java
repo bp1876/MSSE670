@@ -1,18 +1,7 @@
 package com.flightreservation.model.service.factory;
 
-import com.flightreservation.model.service.bookitineraryservice.BookItineraryImpl;
-
-import com.flightreservation.model.service.bookitineraryservice.IBookItineraryService;
-import com.flightreservation.model.service.customeraccountservice.CustomerAccountImpl;
-import com.flightreservation.model.service.customeraccountservice.ICustomerAccountService;
-import com.flightreservation.model.service.listavailableitineraryoptionsservice.IListAvailableItineraryOptionsService;
-import com.flightreservation.model.service.listavailableitineraryoptionsservice.ListAvailableItineraryOptionsImpl;
-import com.flightreservation.model.service.loginservice.ILoginService;
-import com.flightreservation.model.service.loginservice.LoginServiceImpl;
-import com.flightreservation.model.service.reserveitineraryservice.IReserveItineraryService;
-import com.flightreservation.model.service.reserveitineraryservice.ReserveItineraryImpl;
-import com.flightreservation.model.service.searchflightinformationservice.ISearchFlightInformationService;
-import com.flightreservation.model.service.searchflightinformationservice.SearchFlightInformationImpl;
+import com.flightreservation.model.business.exception.ServiceLoadingException;
+import com.flightreservation.model.service.IService;
 
 /**
  * @author Brenda Palmer
@@ -22,56 +11,47 @@ import com.flightreservation.model.service.searchflightinformationservice.Search
 public class Factory {
 
 	/**
-	 * Service factory for CustomerAccountService
-	 * 
+	 * Singleton Pattern
 	 */
 
-	public ICustomerAccountService getCustomerAccount() {
+	public Factory() {
+	}
 
-		return new CustomerAccountImpl();
+	private static Factory factory = new Factory();
+
+	public static Factory getInstance() {
+		return factory;
+	}
+
+	public IService getService(String svcName) throws ServiceLoadingException {
+
+		try {
+			Class<?> c = Class.forName(getImplName(svcName));
+			return (IService) c.newInstance();
+		} catch (Exception e) {
+			svcName = svcName + "service unable to load";
+			throw new ServiceLoadingException(svcName, e);
+		}
+
 	}
 
 	/**
-	 * Service factory for LoginService
 	 * 
+	 * @param svcName
+	 * @return
+	 * @throws Exception
 	 */
-	public ILoginService getLogin() {
+	private String getImplName(String svcName) throws Exception {
 
-		return new LoginServiceImpl();
-	}
+		java.util.Properties propFile = new java.util.Properties();
 
-	/**
-	 * Service factory for SearchFlightInformationService
-	 * 
-	 */
-	public ISearchFlightInformationService getSFI() {
+		String propertyFile = System.getProperty("user.dir");
 
-		return new SearchFlightInformationImpl();
-	}
+		System.out.println("Property File Location passed : " + propertyFile);
+		java.io.FileInputStream fis = new java.io.FileInputStream("C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\config\\application.properties");
 
-	/**
-	 * Service factory for ListAvailableItineraryOptionsService
-	 */
-	public IListAvailableItineraryOptionsService getLAIO() {
-
-		return new ListAvailableItineraryOptionsImpl();
-	}
-
-	/**
-	 * Service factory for ReserveItineraryService
-	 * 
-	 */
-	public IReserveItineraryService getRI() {
-
-		return new ReserveItineraryImpl();
-	}
-
-	/**
-	 * Service factory for BookItineraryService
-	 * 
-	 */
-	public IBookItineraryService getBI() {
-
-		return new BookItineraryImpl();
+		propFile.load(fis);
+		fis.close();
+		return propFile.getProperty(svcName);
 	}
 }

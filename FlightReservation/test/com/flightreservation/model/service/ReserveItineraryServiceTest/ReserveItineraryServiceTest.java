@@ -6,8 +6,8 @@ package com.flightreservation.model.service.ReserveItineraryServiceTest;
 import org.junit.jupiter.api.BeforeEach;
 
 import com.flightreservation.model.domain.ReserveItinerary;
-import com.flightreservation.model.service.factory.Factory;
-import com.flightreservation.model.service.reserveitineraryservice.IReserveItineraryService;
+
+
 
 import junit.framework.TestCase;
 
@@ -17,8 +17,8 @@ import junit.framework.TestCase;
  */
 public class ReserveItineraryServiceTest extends TestCase {
 
-	private Factory sf;
-	private ReserveItinerary reserveflight;
+	
+	private ReserveItinerary reserveflight1, reserveflight2;
 
 	/**
 	 * @throws java.lang.Exception
@@ -27,9 +27,10 @@ public class ReserveItineraryServiceTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		sf = new Factory();
+		
 
-		reserveflight = new ReserveItinerary(522.97, 1, 1, true);
+		reserveflight1 = new ReserveItinerary(522.97, 1, 1, true);
+		reserveflight2 = new ReserveItinerary(522.97, 1, 1, true);
 	}
 
 	/**
@@ -38,16 +39,16 @@ public class ReserveItineraryServiceTest extends TestCase {
 	 */
 	public final void testReserveFlight() {
 
-		IReserveItineraryService iris = sf.getRI();
-		assertTrue(iris.reserveFlight(reserveflight));
+		
+		assertTrue("reserveflight1 validates", reserveflight1.validate());
 		System.out.println("testReserveFlight Passed");
 	}
 	
-	public final void testNullReserveFlight() {
+	public final void testEqualsReserveFlight() {
 
-		IReserveItineraryService iris = sf.getRI();
-		assertTrue(iris.reserveFlight(null));
-		System.out.println("testNullReserveFlight Passed");
+		
+		assertTrue("reserveflight1 equals reserveflight2", reserveflight1.equals(reserveflight2));
+		System.out.println("testEqualsReserveFlight Passed");
 	}
 
 }

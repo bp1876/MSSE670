@@ -1,21 +1,83 @@
 package com.flightreservation.model.service.bookitineraryservice;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
 import com.flightreservation.model.domain.BookItinerary;
+import com.flightreservation.model.domain.FlightReservationComposite;
+import com.flightreservation.model.service.exception.InvalidBookFlightException;
+
 
 /**
  * @author Brenda Palmer
+ * 
+ * @param FlightReservationComposite
+ * 			Used to validate booking flight information
+ * 
+ * @throws InvalidBookFlightException
+ * 			If booking flight information is missing or incorrect exception will be thrown or if 
+ * 			class or file is cannot be found
  *
  */
 
 public class BookItineraryImpl implements IBookItineraryService {
 
-	// Stubbed plugin design for implementing BookItineraryService
 	@Override
-	public boolean bookFlight(BookItinerary bookItinerary) {
+	public boolean bookFlight(FlightReservationComposite frc) throws InvalidBookFlightException {
+		
 
-		System.out.println("Entering method BookItineraryImpl::bookFlight");
+		boolean flag = false;
+		ObjectInputStream readFile = null;
 
-		return true;
+		try {
+
+			readFile = new ObjectInputStream(new FileInputStream("C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\BookFlight.out"));
+
+			BookItinerary savedBook = (BookItinerary) readFile.readObject();
+
+			BookItinerary inBook = frc.getBook();
+
+			if (inBook != null) {
+
+				if (savedBook.equals(inBook)) {
+					flag = true;
+				} else {
+					flag = false;
+				}
+
+			} else {
+
+				throw new InvalidBookFlightException("Invalid Book Flight Information Passed to BookItineraryImpl");
+			}
+		} catch (FileNotFoundException fileinvalid) {
+
+			System.out.println("File not found!");
+			throw new InvalidBookFlightException("File not found", fileinvalid);
+		} catch (IOException e) {
+
+			System.out.println("Exception accessing file!");
+			throw new InvalidBookFlightException("Exception accessing file", e);
+		} catch (ClassNotFoundException classmissing) {
+
+			System.out.println("Class not found!");
+			throw new InvalidBookFlightException("Class not found", classmissing);
+		} finally {
+
+			if (readFile != null) {
+				try {
+					readFile.close();
+				} catch (IOException e) {
+					// print StackTrace to screen or log
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return flag;
 	}
+
+	
 
 }
