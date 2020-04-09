@@ -45,10 +45,10 @@ public class Factory {
 
 		java.util.Properties propFile = new java.util.Properties();
 
-		String propertyFile = System.getProperty("user.dir");
+		String propertyFile = System.getProperty("prop_location");
 
 		System.out.println("Property File Location passed : " + propertyFile);
-		java.io.FileInputStream fis = new java.io.FileInputStream("C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\config\\application.properties");
+		java.io.FileInputStream fis = new java.io.FileInputStream(propertyFile);
 
 		propFile.load(fis);
 		fis.close();

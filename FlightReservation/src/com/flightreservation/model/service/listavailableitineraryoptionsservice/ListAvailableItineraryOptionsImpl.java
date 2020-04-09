@@ -2,8 +2,10 @@ package com.flightreservation.model.service.listavailableitineraryoptionsservice
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import com.flightreservation.model.domain.FlightReservationComposite;
 import com.flightreservation.model.domain.ListAvailableItineraryOptions;
@@ -12,12 +14,11 @@ import com.flightreservation.model.service.exception.InvalidOptionsListException
 /**
  * @author Brenda Palmer
  * 
- * @param FlightReservationComposite
- * 			Used to validate Options List information
+ * @param FlightReservationComposite Used to validate Options List information
  * 
- * @throws InvalidOptionsListException
- * 			If options list information is missing or incorrect exception will be thrown or if 
- * 			class or file is cannot be found
+ * @throws InvalidOptionsListException If options list information is missing or
+ *                                     incorrect exception will be thrown or if
+ *                                     class or file is cannot be found
  *
  */
 
@@ -27,12 +28,23 @@ public class ListAvailableItineraryOptionsImpl implements IListAvailableItinerar
 	public boolean optionsList(FlightReservationComposite frc) throws InvalidOptionsListException {
 		boolean flag = false;
 		ObjectInputStream readFile = null;
+		
 
 		try {
 
-			readFile = new ObjectInputStream(new FileInputStream("C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\OptionsList.out"));
+			FileOutputStream fos = new FileOutputStream(
+					"C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\OptionsList.out");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-			ListAvailableItineraryOptions savedList = (ListAvailableItineraryOptions) readFile.readObject();
+			oos.writeObject(frc.getLaio());
+			oos.flush();
+			
+
+			readFile = new ObjectInputStream(new FileInputStream(
+					"C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\OptionsList.out"));
+
+			Object readObject = readFile.readObject();
+			ListAvailableItineraryOptions savedList = ListAvailableItineraryOptions.class.cast(readObject); 
 
 			ListAvailableItineraryOptions inList = frc.getLaio();
 
@@ -74,7 +86,5 @@ public class ListAvailableItineraryOptionsImpl implements IListAvailableItinerar
 
 		return flag;
 	}
-
-	
 
 }

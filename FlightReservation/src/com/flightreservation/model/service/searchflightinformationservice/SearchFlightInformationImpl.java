@@ -2,8 +2,10 @@ package com.flightreservation.model.service.searchflightinformationservice;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import com.flightreservation.model.domain.FlightReservationComposite;
 import com.flightreservation.model.domain.SearchFlightInformation;
@@ -12,28 +14,35 @@ import com.flightreservation.model.service.exception.InvalidSearchFlightExceptio
 /**
  * @author Brenda Palmer
  * 
- * @param FlightReservationComposite
- * 			Used to validate search flight information
+ * @param FlightReservationComposite Used to validate search flight information
  * 
- * @throws InvalidSearchFlightException
- * 			If search flight information is missing or incorrect exception will be thrown or if 
- * 			class or file is cannot be found
+ * @throws InvalidSearchFlightException If search flight information is missing
+ *                                      or incorrect exception will be thrown or
+ *                                      if class or file is cannot be found
  *
  */
 
-public class SearchFlightInformationImpl implements ISearchFlightInformationService{
+public class SearchFlightInformationImpl implements ISearchFlightInformationService {
 
-	
-	public boolean searchFlights(FlightReservationComposite frc) throws InvalidSearchFlightException{
+	public boolean searchFlights(FlightReservationComposite frc) throws InvalidSearchFlightException {
 
 		boolean flag = false;
 		ObjectInputStream readFile = null;
 
 		try {
 
-			readFile = new ObjectInputStream(new FileInputStream("C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\SearchFlightInformation.out"));
+			FileOutputStream fos = new FileOutputStream(
+					"C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\SearchFlightInformation.out");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-			SearchFlightInformation savedSearch = (SearchFlightInformation) readFile.readObject();
+			oos.writeObject(frc.getSfi());
+			oos.flush();
+
+			readFile = new ObjectInputStream(new FileInputStream(
+					"C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\SearchFlightInformation.out"));
+
+			Object readObject = readFile.readObject();
+			SearchFlightInformation savedSearch = SearchFlightInformation.class.cast(readObject);
 
 			SearchFlightInformation inSearch = frc.getSfi();
 
@@ -47,7 +56,8 @@ public class SearchFlightInformationImpl implements ISearchFlightInformationServ
 
 			} else {
 
-				throw new InvalidSearchFlightException("Invalid Search Flight Information Passed to SearchFlightInfomationImpl");
+				throw new InvalidSearchFlightException(
+						"Invalid Search Flight Information Passed to SearchFlightInfomationImpl");
 			}
 		} catch (FileNotFoundException fileinvalid) {
 

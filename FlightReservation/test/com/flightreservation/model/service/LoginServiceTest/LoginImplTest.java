@@ -1,5 +1,7 @@
 package com.flightreservation.model.service.LoginServiceTest;
 
+import org.junit.Test;
+
 import com.flightreservation.model.business.exception.ServiceLoadingException;
 import com.flightreservation.model.domain.FlightReservationComposite;
 import com.flightreservation.model.domain.Login;
@@ -29,9 +31,10 @@ public class LoginImplTest extends TestCase {
 		frc.setLogin(login);
 	}
 
+	
 	public final void testLogin() {
 
-		ILoginService log;
+		ILoginService log = null;
 
 		try {
 			log = (ILoginService) serviceFactory.getService(ILoginService.NAME);
@@ -45,15 +48,18 @@ public class LoginImplTest extends TestCase {
 		} catch (InvalidLoginException icce) {
 			icce.printStackTrace();
 			fail("InvalidLoginException");
+		
 		}
-
+		
+		LoginServiceImpl lsi = null;
 		try {
+			
+			
+			lsi = (LoginServiceImpl) serviceFactory.getService(ILoginService.NAME);
 
-			LoginServiceImpl l = (LoginServiceImpl) serviceFactory.getService(ILoginService.NAME);
-
-			assertTrue(l.authenticateUser(frc));
+			assertTrue(lsi.authenticateUser(frc));
 			System.out.println("testLogin Passed");
-
+					
 		} catch (ServiceLoadingException e) {
 			e.printStackTrace();
 			fail("ServiceLoadException");
@@ -63,5 +69,5 @@ public class LoginImplTest extends TestCase {
 
 		}
 	}
-
+	
 }

@@ -2,8 +2,10 @@ package com.flightreservation.model.service.bookitineraryservice;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import com.flightreservation.model.domain.BookItinerary;
 import com.flightreservation.model.domain.FlightReservationComposite;
@@ -30,13 +32,22 @@ public class BookItineraryImpl implements IBookItineraryService {
 
 		boolean flag = false;
 		ObjectInputStream readFile = null;
-
+		
 		try {
+
+			FileOutputStream fos = new FileOutputStream(
+					"C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\BookFlight.out");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+			oos.writeObject(frc.getBook());
+			oos.flush();
+			
 
 			readFile = new ObjectInputStream(new FileInputStream("C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\BookFlight.out"));
 
-			BookItinerary savedBook = (BookItinerary) readFile.readObject();
-
+			Object readObject = readFile.readObject();
+			BookItinerary savedBook = BookItinerary.class.cast(readObject);
+					
 			BookItinerary inBook = frc.getBook();
 
 			if (inBook != null) {

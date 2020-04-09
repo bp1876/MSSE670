@@ -2,8 +2,10 @@ package com.flightreservation.model.service.loginservice;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import com.flightreservation.model.domain.FlightReservationComposite;
 import com.flightreservation.model.domain.Login;
@@ -30,9 +32,18 @@ public class LoginServiceImpl implements ILoginService {
 
 		try {
 
-			readFile = new ObjectInputStream(new FileInputStream("C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\Login.out"));
+			FileOutputStream fos = new FileOutputStream(
+					"C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\Login.out");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-			Login savedLogin = (Login) readFile.readObject();
+			oos.writeObject(frc.getLogin());
+			oos.flush();
+
+			readFile = new ObjectInputStream(
+					new FileInputStream("C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\Login.out"));
+
+			Object readObject = readFile.readObject();
+			Login savedLogin = Login.class.cast(readObject);
 
 			Login inLogin = frc.getLogin();
 
@@ -48,6 +59,7 @@ public class LoginServiceImpl implements ILoginService {
 
 				throw new InvalidLoginException("Invalid Login Information Passed to LoginServiceImpl");
 			}
+
 		} catch (FileNotFoundException fileinvalid) {
 
 			System.out.println("File not found!");
@@ -56,11 +68,14 @@ public class LoginServiceImpl implements ILoginService {
 
 			System.out.println("Exception accessing file!");
 			e.printStackTrace();
-			//throw new InvalidLoginException("Exception accessing file", e);
+			throw new InvalidLoginException("Exception accessing file", e);
 		} catch (ClassNotFoundException classmissing) {
 
 			System.out.println("Class not found!");
 			throw new InvalidLoginException("Class not found", classmissing);
+		} catch (Exception e) {
+			System.out.println("unknown error occured");
+			throw new InvalidLoginException(e.getMessage());
 		} finally {
 
 			if (readFile != null) {
