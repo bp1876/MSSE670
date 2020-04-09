@@ -38,6 +38,7 @@ public class CustomerAccountImpl implements ICustomerAccountService {
 
 			oos.writeObject(frc.getCa());
 			oos.flush();
+			oos.close();
 
 			readFile = new ObjectInputStream(new FileInputStream(
 					"C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\CreditCardInformation.out"));

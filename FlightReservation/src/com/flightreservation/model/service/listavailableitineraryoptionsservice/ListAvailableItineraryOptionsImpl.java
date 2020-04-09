@@ -38,6 +38,7 @@ public class ListAvailableItineraryOptionsImpl implements IListAvailableItinerar
 
 			oos.writeObject(frc.getLaio());
 			oos.flush();
+			oos.close();
 			
 
 			readFile = new ObjectInputStream(new FileInputStream(

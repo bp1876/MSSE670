@@ -37,6 +37,7 @@ public class SearchFlightInformationImpl implements ISearchFlightInformationServ
 
 			oos.writeObject(frc.getSfi());
 			oos.flush();
+			oos.close();
 
 			readFile = new ObjectInputStream(new FileInputStream(
 					"C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\SearchFlightInformation.out"));

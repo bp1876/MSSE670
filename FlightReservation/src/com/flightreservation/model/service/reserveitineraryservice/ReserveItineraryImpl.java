@@ -40,6 +40,7 @@ public class ReserveItineraryImpl implements IReserveItineraryService {
 
 			oos.writeObject(frc.getRi());
 			oos.flush();
+			oos.close();
 
 			readFile = new ObjectInputStream(new FileInputStream(
 					"C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\ReserveFlight.out"));

@@ -38,6 +38,7 @@ public class LoginServiceImpl implements ILoginService {
 
 			oos.writeObject(frc.getLogin());
 			oos.flush();
+			oos.close();
 
 			readFile = new ObjectInputStream(
 					new FileInputStream("C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\Login.out"));

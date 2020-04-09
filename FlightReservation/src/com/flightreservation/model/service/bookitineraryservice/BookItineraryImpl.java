@@ -41,6 +41,7 @@ public class BookItineraryImpl implements IBookItineraryService {
 
 			oos.writeObject(frc.getBook());
 			oos.flush();
+			oos.close();
 			
 
 			readFile = new ObjectInputStream(new FileInputStream("C:\\Users\\Admin\\git\\MSSE670\\FlightReservation\\flightdocs\\BookFlight.out"));

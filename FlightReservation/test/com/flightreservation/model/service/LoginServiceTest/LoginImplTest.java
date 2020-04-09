@@ -1,6 +1,6 @@
 package com.flightreservation.model.service.LoginServiceTest;
 
-import org.junit.Test;
+
 
 import com.flightreservation.model.business.exception.ServiceLoadingException;
 import com.flightreservation.model.domain.FlightReservationComposite;
