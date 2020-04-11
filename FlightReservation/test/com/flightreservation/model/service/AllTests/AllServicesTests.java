@@ -20,6 +20,7 @@ import com.flightreservation.model.service.ReserveItineraryServiceTest.ReserveIt
 import com.flightreservation.model.service.ReserveItineraryServiceTest.ReserveItineraryServiceTest;
 import com.flightreservation.model.service.SearchFlightInformationServiceTest.SearchFlightInformationImplTest;
 import com.flightreservation.model.service.SearchFlightInformationServiceTest.SearchFlightInformationServiceTest;
+import com.flightreservation.model.service.factory.Factory;
 
 /**
  * @author Brenda Palmer
@@ -32,7 +33,7 @@ import com.flightreservation.model.service.SearchFlightInformationServiceTest.Se
 		SearchFlightInformationServiceTest.class, ListAvailableItineraryOptionsServiceTest.class,
 		ReserveItineraryServiceTest.class, BookItineraryServiceTest.class, CustomerAccountImplTest.class, LoginImplTest.class,
 		SearchFlightInformationImplTest.class, ListAvailableItineraryOptionsImplTest.class,
-		ReserveItineraryImplTest.class, BookItineraryImplTest.class})
+		ReserveItineraryImplTest.class, BookItineraryImplTest.class, Factory.class})
 public class AllServicesTests {
 
 }

@@ -175,6 +175,8 @@ public class FactoryServiceTest {
 		
 			e.printStackTrace();
 			fail("ServiceLoadingException");
+		}catch(Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 
