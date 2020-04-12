@@ -16,7 +16,25 @@ import junit.framework.TestCase;
  * @author Brenda Palmer
  *
  */
-class CustomerAccountMgrTest extends TestCase {
+public class CustomerAccountMgrTest extends TestCase {
+	
+	
+
+	/**
+	 * 
+	 */
+	public CustomerAccountMgrTest() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @param name
+	 */
+	public CustomerAccountMgrTest(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
 
 	@SuppressWarnings("unused")
 	private CustomerAccount ca;
@@ -25,7 +43,7 @@ class CustomerAccountMgrTest extends TestCase {
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 		super.setUp();
 
 		ca = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
@@ -33,19 +51,19 @@ class CustomerAccountMgrTest extends TestCase {
 	}
 
 	@Test
-	void testCreateCreditCardInformation() throws ServiceLoadingException, InvalidCreditCardException {
+	public void testCreateCreditCardInformation() throws ServiceLoadingException, InvalidCreditCardException {
 		assertTrue(Manager.class.isAssignableFrom(CustomerAccountManager.class));
 		assertTrue(CustomerAccountManager.ca);
 		System.out.println("testCreateCreditCardInformation Passed");
 	}
 
-	private void assertTrue(int ca2) {
+	public void assertTrue(int ca2) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Test
-	void testgetCCInfo() throws ServiceLoadingException, InvalidCreditCardException {
+	public void testgetCCInfo() throws ServiceLoadingException, InvalidCreditCardException {
 
 		assertTrue(Manager.class.isAssignableFrom(CustomerAccountManager.class));
 		System.out.println(CustomerAccountManager.ca);

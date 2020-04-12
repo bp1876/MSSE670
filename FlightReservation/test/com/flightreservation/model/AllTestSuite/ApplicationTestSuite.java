@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import com.flightreservation.model.service.FactoryTest.FactoryServiceTest;
+
 
 import junit.framework.TestCase;
 
@@ -19,9 +19,10 @@ import junit.framework.TestCase;
  *
  */
 @RunWith(Suite.class)
-@SelectPackages({"com.flightreservation.model.service", "com.flightreservation.model.domain"})
+@SelectPackages({"com.flightreservation.model.service", "com.flightreservation.model.domain" , 
+	"com.flightreservation.model.business"})
 @SuiteClasses({com.flightreservation.model.service.AllTests.AllServicesTests.class,
-	com.flightreservation.model.domain.AllTests.class})
+	com.flightreservation.model.domain.AllTests.class, com.flightreservation.model.business.AllTests.class})
 public class ApplicationTestSuite extends TestCase{
 	
 	
