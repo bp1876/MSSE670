@@ -52,7 +52,7 @@ public class Login implements Serializable {
 	// method to authenticate the user with a valid username and valid password
 	public void authenticateUser(String userName, String password) {
 
-		if ((userName == "brenda") & (password == "pass")) {
+		if (userName.equals("brenda") && password.equals("pass")) {
 
 			System.out.println("Login Successful");
 		} else {
@@ -66,6 +66,10 @@ public class Login implements Serializable {
 		super();
 		this.userName = userName;
 		this.password = password;
+	}
+
+	public Login() {
+		// TODO Auto-generated constructor stub
 	}
 
 	// validate method for JUint testing
@@ -120,9 +124,9 @@ public class Login implements Serializable {
 
 	public static void main(String[] args) {
 
-		Login login = new Login("brenda", "pass");
+		//Login login = new Login("brenda", "pass");
 
-		System.out.println(login);
+		//System.out.println(login);
 
 	}
 

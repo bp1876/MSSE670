@@ -3,6 +3,8 @@
  */
 package com.flightreservation.model.business;
 
+import javax.swing.JTextField;
+
 import com.flightreservation.model.business.exception.ServiceLoadingException;
 import com.flightreservation.model.domain.FlightReservationComposite;
 import com.flightreservation.model.service.exception.InvalidLoginException;
@@ -20,8 +22,8 @@ public class LoginManager extends Manager {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static String userName = "";
-	public static String password = "";
+	public static String userName = "brenda";
+	public static String password = "pass";
 
 	public void createLogin(FlightReservationComposite frc) throws ServiceLoadingException, InvalidLoginException {
 
@@ -57,6 +59,11 @@ public class LoginManager extends Manager {
 
 	public void generateStatement(FlightReservationComposite frc) {
 
+	}
+
+	public void getLogin(JTextField userNameField, JTextField passwordField) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

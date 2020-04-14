@@ -76,7 +76,8 @@ public class LoginServiceImpl implements ILoginService {
 			throw new InvalidLoginException("Class not found", classmissing);
 		} catch (Exception e) {
 			System.out.println("unknown error occured");
-			throw new InvalidLoginException(e.getMessage());
+			//throw new InvalidLoginException(e.getMessage());
+			e.printStackTrace();
 		} finally {
 
 			if (readFile != null) {

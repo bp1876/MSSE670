@@ -160,6 +160,16 @@ public class FlightReservationComposite implements Serializable{
 		
 		
 	}
+
+	public void getLogin(String text, String text2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLogin(String text, String text2) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
