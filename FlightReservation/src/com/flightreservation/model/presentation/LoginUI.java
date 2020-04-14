@@ -75,6 +75,7 @@ public class LoginUI extends JFrame {
 
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
+			//Create Inner class
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Login login = new Login();
@@ -82,6 +83,7 @@ public class LoginUI extends JFrame {
 				LoginManager loginmgr = new LoginManager();
 				loginmgr.getLogin(userNameField, passwordField);
 
+				//show gui messages to user
 				if (userNameField.getText().equals("brenda") && passwordField.getText().equals("pass")) {
 
 					JOptionPane.showMessageDialog(frame, "Successfully Logged in");
