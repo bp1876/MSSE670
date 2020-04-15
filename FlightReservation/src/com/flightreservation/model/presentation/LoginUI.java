@@ -10,16 +10,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import com.flightreservation.model.business.LoginManager;
-import com.flightreservation.model.business.exception.ServiceLoadingException;
-import com.flightreservation.model.domain.FlightReservationComposite;
 import com.flightreservation.model.domain.Login;
-import com.flightreservation.model.service.exception.InvalidLoginException;
+
 
 import javax.swing.JButton;
 
 public class LoginUI extends JFrame {
-
-	private JFrame frame;
+	
+	
+	private JFrame frmLogin;
 	private JTextField userNameField;
 	private JTextField passwordField;
 
@@ -31,7 +30,7 @@ public class LoginUI extends JFrame {
 			public void run() {
 				try {
 					LoginUI window = new LoginUI();
-					window.frame.setVisible(true);
+					window.frmLogin.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,27 +49,29 @@ public class LoginUI extends JFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmLogin = new JFrame();
+		frmLogin.setTitle("Login");
+		frmLogin.setBounds(100, 100, 450, 300);
+		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLogin.getContentPane().setLayout(null);
+		
 
 		JLabel userNameLabel = new JLabel("User Name:");
 		userNameLabel.setBounds(56, 68, 76, 22);
-		frame.getContentPane().add(userNameLabel);
+		frmLogin.getContentPane().add(userNameLabel);
 
 		JLabel passwordLabel = new JLabel("Password:");
 		passwordLabel.setBounds(56, 120, 64, 14);
-		frame.getContentPane().add(passwordLabel);
+		frmLogin.getContentPane().add(passwordLabel);
 
 		userNameField = new JTextField();
 		userNameField.setBounds(132, 69, 137, 20);
-		frame.getContentPane().add(userNameField);
+		frmLogin.getContentPane().add(userNameField);
 		userNameField.setColumns(10);
 
 		passwordField = new JTextField();
 		passwordField.setBounds(132, 117, 137, 20);
-		frame.getContentPane().add(passwordField);
+		frmLogin.getContentPane().add(passwordField);
 		passwordField.setColumns(10);
 
 		JButton btnLogin = new JButton("Login");
@@ -86,22 +87,19 @@ public class LoginUI extends JFrame {
 				//show gui messages to user
 				if (userNameField.getText().equals("brenda") && passwordField.getText().equals("pass")) {
 
-					JOptionPane.showMessageDialog(frame, "Successfully Logged in");
+					JOptionPane.showMessageDialog(frmLogin, "Successfully Logged in");
 				} else {
 
-					JOptionPane.showMessageDialog(frame, "Incorrect Username or Password entered, please try again");
+					JOptionPane.showMessageDialog(frmLogin, "Incorrect Username or Password entered, please try again");
 				}
 
 			}
 
 		});
 
-		btnLogin.setBounds(100, 185, 89, 23);
-		frame.getContentPane().add(btnLogin);
+		btnLogin.setBounds(180, 177, 89, 23);
+		frmLogin.getContentPane().add(btnLogin);
 
-		JButton btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(243, 185, 89, 23);
-		frame.getContentPane().add(btnCancel);
-
+		
 	}
 }
