@@ -26,7 +26,7 @@ public class SearchFlightInformationImplTest extends TestCase{
 		serviceFactory = Factory.getInstance();
 
 		sfi = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA",
-				2, false, true);
+				"2", "false", "true");
 		frc.setSfi(sfi);
 	}
 

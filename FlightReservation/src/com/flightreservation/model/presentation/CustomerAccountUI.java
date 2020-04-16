@@ -14,7 +14,7 @@ import com.flightreservation.model.business.CustomerAccountManager;
 import com.flightreservation.model.domain.CustomerAccount;
 
 import javax.swing.JButton;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
+
 
 @SuppressWarnings("serial")
 public class CustomerAccountUI extends JFrame {
@@ -159,11 +159,5 @@ public class CustomerAccountUI extends JFrame {
 		emailField.setBounds(72, 74, 124, 20);
 		frmCustomeraccount.getContentPane().add(emailField);
 		emailField.setColumns(10);
-
-		JLabel infoLabel = DefaultComponentFactory.getInstance()
-				.createLabel("Enter your information in the text fields and click Submit");
-		infoLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		infoLabel.setBounds(10, 214, 364, 14);
-		frmCustomeraccount.getContentPane().add(infoLabel);
 	}
 }

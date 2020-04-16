@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class SearchFlightInformation implements Serializable {
 
 	/**
-	 * The following fields are the class variable for Serializable and instance variables
-	 * as outlined in the class diagram
+	 * The following fields are the class variable for Serializable and instance
+	 * variables as outlined in the class diagram
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -23,11 +23,11 @@ public class SearchFlightInformation implements Serializable {
 
 	private String arrivalLocation;
 
-	private int numerOfPassengers;
+	private String numerOfPassengers;
 
-	private boolean oneWay;
+	private String oneWay;
 
-	private boolean roundTrip;
+	private String roundTrip;
 
 	/**
 	 * @return the departureDate
@@ -116,42 +116,42 @@ public class SearchFlightInformation implements Serializable {
 	/**
 	 * @return the numerOfPassengers
 	 */
-	public int getNumerOfPassengers() {
+	public String getNumerOfPassengers() {
 		return numerOfPassengers;
 	}
 
 	/**
 	 * @param numerOfPassengers the numerOfPassengers to set
 	 */
-	public void setNumerOfPassengers(int numerOfPassengers) {
+	public void setNumerOfPassengers(String numerOfPassengers) {
 		this.numerOfPassengers = numerOfPassengers;
 	}
 
 	/**
 	 * @return the oneWay
 	 */
-	public boolean isOneWay() {
+	public String isOneWay() {
 		return oneWay;
 	}
 
 	/**
 	 * @param oneWay the oneWay to set
 	 */
-	public void setOneWay(boolean oneWay) {
+	public void setOneWay(String oneWay) {
 		this.oneWay = oneWay;
 	}
 
 	/**
 	 * @return the roundTrip
 	 */
-	public boolean isRoundTrip() {
+	public String isRoundTrip() {
 		return roundTrip;
 	}
 
 	/**
 	 * @param roundTrip the roundTrip to set
 	 */
-	public void setRoundTrip(boolean roundTrip) {
+	public void setRoundTrip(String roundTrip) {
 		this.roundTrip = roundTrip;
 	}
 
@@ -162,10 +162,10 @@ public class SearchFlightInformation implements Serializable {
 		return serialVersionUID;
 	}
 
-	//Constructor
+	// Constructor
 	public SearchFlightInformation(String departureDate, String departureTime, String departureLocation,
-			String arrivalDate, String arrivalTime, String arrivalLocation, int numerOfPassengers, boolean oneWay,
-			boolean roundTrip) {
+			String arrivalDate, String arrivalTime, String arrivalLocation, String numerOfPassengers, String oneWay,
+			String roundTrip) {
 		super();
 		this.departureDate = departureDate;
 		this.departureTime = departureTime;
@@ -178,28 +178,36 @@ public class SearchFlightInformation implements Serializable {
 		this.roundTrip = roundTrip;
 	}
 
-	//Method to search flights by inputting desired search criteria and then saving it to a list
-	@SuppressWarnings("rawtypes")
-	public ArrayList<Comparable> searchFlights(String departureDate, String departureTime, String departureLocation,
-			String arrivalDate, String arrivalTime, String arrivalLocation, int numerOfPassengers, boolean oneWay,
-			boolean roundTrip) {
-
-		ArrayList<Comparable> list = new ArrayList<Comparable>();
-		list.add(departureDate);
-		list.add(departureTime);
-		list.add(departureLocation);
-		list.add(arrivalDate);
-		list.add(arrivalTime);
-		list.add(arrivalLocation);
-		list.add(numerOfPassengers);
-		list.add(oneWay);
-		list.add(roundTrip);
-
-		return list;
+	public SearchFlightInformation() {
+		// TODO Auto-generated constructor stub
 	}
+
+	// Method to search flights by inputting desired search criteria and then saving
+	// it to a list
+	public void searchFlights(String text, String text2, String text3, String text4, String text5, String text6,
+			String text7, String text8, String text9) {
+
+		ArrayList<Object> list = new ArrayList<Object>();
+
+		SearchFlightInformation sfi = new SearchFlightInformation(departureDate, departureTime, departureLocation,
+				arrivalDate, arrivalTime, arrivalLocation, numerOfPassengers, oneWay, roundTrip);
+
+		list.add(sfi);
+
+		// Currently just verifying that the departureDate field was populated for validation
+		if (text.equals("")) {
+
+			System.out.println("Invalid search criteria entered, please try again");
+
+		} else {
+
+			System.out.println("Search for Flight Successful");
+
+		}
+	}
+
 	
-	
-    //overriding the hashCode method
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -210,13 +218,12 @@ public class SearchFlightInformation implements Serializable {
 		result = prime * result + ((departureDate == null) ? 0 : departureDate.hashCode());
 		result = prime * result + ((departureLocation == null) ? 0 : departureLocation.hashCode());
 		result = prime * result + ((departureTime == null) ? 0 : departureTime.hashCode());
-		result = prime * result + numerOfPassengers;
-		result = prime * result + (oneWay ? 1231 : 1237);
-		result = prime * result + (roundTrip ? 1231 : 1237);
+		result = prime * result + ((numerOfPassengers == null) ? 0 : numerOfPassengers.hashCode());
+		result = prime * result + ((oneWay == null) ? 0 : oneWay.hashCode());
+		result = prime * result + ((roundTrip == null) ? 0 : roundTrip.hashCode());
 		return result;
 	}
 
-	//overriding the equals method
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -256,16 +263,25 @@ public class SearchFlightInformation implements Serializable {
 				return false;
 		} else if (!departureTime.equals(other.departureTime))
 			return false;
-		if (numerOfPassengers != other.numerOfPassengers)
+		if (numerOfPassengers == null) {
+			if (other.numerOfPassengers != null)
+				return false;
+		} else if (!numerOfPassengers.equals(other.numerOfPassengers))
 			return false;
-		if (oneWay != other.oneWay)
+		if (oneWay == null) {
+			if (other.oneWay != null)
+				return false;
+		} else if (!oneWay.equals(other.oneWay))
 			return false;
-		if (roundTrip != other.roundTrip)
+		if (roundTrip == null) {
+			if (other.roundTrip != null)
+				return false;
+		} else if (!roundTrip.equals(other.roundTrip))
 			return false;
 		return true;
 	}
 
-	//validate method for JUnit testing
+	// validate method for JUnit testing
 	public boolean validate() {
 
 		if (departureDate == "")
@@ -280,17 +296,17 @@ public class SearchFlightInformation implements Serializable {
 			return false;
 		if (arrivalLocation == "")
 			return false;
-		if (numerOfPassengers == 0)
+		if (numerOfPassengers == "")
 			return false;
-		if (oneWay == false)
+		if (oneWay == "")
 			return false;
-		if (roundTrip == false)
+		if (roundTrip == "")
 			return false;
 
 		return true;
 	}
 
-	//overriding toString method to print the object
+	// overriding toString method to print the object
 	@Override
 	public String toString() {
 		return "SearchFlightInformation [departureDate=" + departureDate + ", departureTime=" + departureTime
@@ -301,11 +317,13 @@ public class SearchFlightInformation implements Serializable {
 
 	public static void main(String[] args) {
 
-		SearchFlightInformation flightinfo = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA",
-				2, false, true);
+		//SearchFlightInformation flightinfo = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA",
+			//	2, false, true);
 
-		System.out.println(flightinfo);
+		//System.out.println(flightinfo);
 
 	}
+
+	 
 
 }

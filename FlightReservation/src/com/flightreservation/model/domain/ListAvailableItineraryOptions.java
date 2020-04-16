@@ -78,7 +78,7 @@ public class ListAvailableItineraryOptions implements Serializable {
 	public ArrayList<Object> optionsList(double cost, int departureTimeOffset, int legs) {
 
 		SearchFlightInformation flightinfo = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA",
-				2, false, true);
+				"2", "false", "true");
 
 		ArrayList<Object> list = new ArrayList<Object>();
 

@@ -28,7 +28,7 @@ public class SearchFlightInfoMgrTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 
-		sfi = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA", 2, false, true);
+		sfi = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA", "2", "false", "true");
 	}
 
 	@Test

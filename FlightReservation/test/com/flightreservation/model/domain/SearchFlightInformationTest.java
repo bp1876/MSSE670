@@ -11,7 +11,7 @@ public class SearchFlightInformationTest {
 	public void testValidates() {
 
 		SearchFlightInformation flightinfo = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA",
-				2, true, true);
+				"2", "true", "true");
 
 		//Testing that the arguments passed are valid
 		assertTrue(flightinfo.validate(), "SearchFlightInformation validates");
@@ -22,8 +22,8 @@ public class SearchFlightInformationTest {
 	@Test
 	public void testNotValidates() {
 
-		SearchFlightInformation flightinfo = new SearchFlightInformation("", "5am", "DEN", "032020", "1pm", "AAA", 2,
-				false, true);
+		SearchFlightInformation flightinfo = new SearchFlightInformation("", "5am", "DEN", "032020", "1pm", "AAA", "2",
+				"false", "true");
 
 		//Testing that the arguments passed are invalid 
 		assertFalse(flightinfo.validate(), "SearchFlightInformation does not validate");
@@ -35,9 +35,9 @@ public class SearchFlightInformationTest {
 	public void testEquals() {
 
 		SearchFlightInformation flightinfo1 = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm",
-				"AAA", 2, false, true);
+				"AAA", "2", "false", "true");
 		SearchFlightInformation flightinfo2 = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm",
-				"AAA", 2, false, true);
+				"AAA", "2", "false", "true");
 
 		//Testing that the arguments for both objects are a match
 		assertTrue(flightinfo1.equals(flightinfo2), "flightinfo1 equals flightinfo2");
@@ -49,9 +49,9 @@ public class SearchFlightInformationTest {
 	public void testNotEquals() {
 
 		SearchFlightInformation flightinfo1 = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm",
-				"AAA", 2, false, true);
+				"AAA", "2", "false", "true");
 		SearchFlightInformation flightinfo2 = new SearchFlightInformation("031921", "5am", "DEN", "032020", "1pm",
-				"AAA", 2, false, true);
+				"AAA", "2", "false", "true");
 
 		//Testing that the arguments for both objects are not a match
 		assertFalse(flightinfo1.equals(flightinfo2), "flightinfo1 does not equal flightinfo2");

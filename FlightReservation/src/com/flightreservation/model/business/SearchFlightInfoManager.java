@@ -5,6 +5,7 @@ package com.flightreservation.model.business;
 
 import com.flightreservation.model.business.exception.ServiceLoadingException;
 import com.flightreservation.model.domain.FlightReservationComposite;
+import com.flightreservation.model.domain.SearchFlightInformation;
 import com.flightreservation.model.service.exception.InvalidSearchFlightException;
 import com.flightreservation.model.service.factory.Factory;
 import com.flightreservation.model.service.searchflightinformationservice.ISearchFlightInformationService;
@@ -59,6 +60,11 @@ public class SearchFlightInfoManager extends Manager {
 
 	public void generateStatement(FlightReservationComposite frc) {
 
+	}
+
+	public void getSearchFlightInfo(SearchFlightInformation sfi) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

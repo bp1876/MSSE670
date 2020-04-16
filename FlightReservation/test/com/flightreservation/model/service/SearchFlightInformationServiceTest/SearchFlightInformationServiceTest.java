@@ -27,8 +27,8 @@ public class SearchFlightInformationServiceTest extends TestCase {
 		super.setUp();
 
 		
-		flightinfo1 = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA", 2, true, true);
-		flightinfo2 = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA", 2, true, true);
+		flightinfo1 = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA", "2", "true", "true");
+		flightinfo2 = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA", "2", "true", "true");
 	}
 
 	/**
