@@ -54,14 +54,14 @@ public class ReserveItineraryUI extends JFrame{
 		frmReserveitinerary.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmReserveitinerary.getContentPane().setLayout(null);
 		
-		JLabel selectListLabel = new JLabel("Enter Yes to select the list");
+		JLabel selectListLabel = new JLabel("Enter Yes to select the list to Reserve Flight");
 		selectListLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		selectListLabel.setBounds(10, 56, 208, 14);
+		selectListLabel.setBounds(10, 56, 274, 14);
 		frmReserveitinerary.getContentPane().add(selectListLabel);
 		
 		selectListField = new JTextField();
 		selectListField.setHorizontalAlignment(SwingConstants.LEFT);
-		selectListField.setBounds(228, 53, 86, 20);
+		selectListField.setBounds(294, 53, 86, 20);
 		frmReserveitinerary.getContentPane().add(selectListField);
 		selectListField.setColumns(10);
 		
