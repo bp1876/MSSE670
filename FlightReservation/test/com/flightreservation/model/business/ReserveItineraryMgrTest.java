@@ -28,7 +28,7 @@ public class ReserveItineraryMgrTest extends TestCase{
 	protected void setUp() throws Exception {
 		super.setUp();
 		
-		ri = new ReserveItinerary(522.97, 1, 1, true);
+		ri = new ReserveItinerary("522.97", "1", "1", "true");
 
 }
 	

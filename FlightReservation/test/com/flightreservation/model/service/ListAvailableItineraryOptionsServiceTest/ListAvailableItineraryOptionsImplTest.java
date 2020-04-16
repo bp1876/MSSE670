@@ -27,7 +27,7 @@ public class ListAvailableItineraryOptionsImplTest extends TestCase{
 
 		serviceFactory = Factory.getInstance();
 
-		optionsList = new ListAvailableItineraryOptions(500.99, 1, 1);
+		optionsList = new ListAvailableItineraryOptions("500.99", "1", "1");
 		frc.setLaio(optionsList);
 	}
 

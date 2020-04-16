@@ -25,7 +25,7 @@ public class ReserveItineraryImplTest extends TestCase {
 
 		serviceFactory = Factory.getInstance();
 
-		reserveflight = new ReserveItinerary(522.97, 1, 1, true);
+		reserveflight = new ReserveItinerary("522.97", "1", "1", "true");
 		frc.setRi(reserveflight);
 	}
 

@@ -28,7 +28,7 @@ public class BookItineraryMgrTest extends TestCase{
 	protected void setUp() throws Exception {
 		super.setUp();
 	
-	book = new BookItinerary(588.10, 1, 1, true, true);
+	book = new BookItinerary("588.10", "1", "1", "true", "true");
 
 }
 	

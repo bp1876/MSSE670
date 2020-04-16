@@ -12,19 +12,19 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	//instance variable for flight booked field
-	private boolean flightBooked;
+	private String flightBooked;
 
 	/**
 	 * @return the flightBooked
 	 */
-	public boolean isFlightBooked() {
+	public String isFlightBooked() {
 		return flightBooked;
 	}
 
 	/**
 	 * @param flightBooked the flightBooked to set
 	 */
-	public void setFlightBooked(boolean flightBooked) {
+	public void setFlightBooked(String flightBooked) {
 		this.flightBooked = flightBooked;
 	}
 
@@ -36,43 +36,48 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 	}
 
 	//Constructor that also includes parent classes fields
-	public BookItinerary(double cost, int departureTimeOffset, int legs, boolean selectList, boolean flightBooked) {
+	public BookItinerary(String cost, String departureTimeOffset, String legs, String selectList, String flightBooked) {
 		super(cost, departureTimeOffset, legs, selectList);
 		this.flightBooked = flightBooked;
 	}
 
-	//method to check if flight is reserved and if so then flight will be booked
-	public void bookFlight(boolean flightReserved) {
+	public BookItinerary() {
+		// TODO Auto-generated constructor stub
+	}
 
-		if (flightReserved == true) {
+	//method to check if flight has been booked
+	public void bookFlight(String book) {
 
-			// In order to complete the booking process, credit card information has to be
-			// added
-			//CustomerAccount ca = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
-			//ca.registerCreditCardInformation(16, 4);
+		if (book.equalsIgnoreCase("Yes")) {
 
+			System.out.println("Flight successfully booked: " + book);
+		}
+
+		else {
+
+			System.out.println("Flight has not been booked: " + book);
 		}
 	}
 
 	//validate method for JUnit testing
 	public boolean validate() {
 
-		if (flightBooked == false)
+		if (flightBooked == "")
 			return false;
 
 		return true;
 	}
 
-	//overriding hashCode method
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + (flightBooked ? 1231 : 1237);
+		result = prime * result + ((flightBooked == null) ? 0 : flightBooked.hashCode());
 		return result;
 	}
 
-	//overriding equals method for JUnit testing
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -82,7 +87,10 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		BookItinerary other = (BookItinerary) obj;
-		if (flightBooked != other.flightBooked)
+		if (flightBooked == null) {
+			if (other.flightBooked != null)
+				return false;
+		} else if (!flightBooked.equals(other.flightBooked))
 			return false;
 		return true;
 	}
@@ -95,9 +103,9 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 
 	public static void main(String[] args) {
 
-		BookItinerary book = new BookItinerary(588.10, 1, 1, true, true);
+		//BookItinerary book = new BookItinerary("588.10", "1", "1", "true", "true");
 
-		System.out.println(book);
+		//System.out.println(book);
 
 	}
 

@@ -15,7 +15,8 @@ import com.flightreservation.model.domain.SearchFlightInformation;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class SearchFlightInfoUI {
+@SuppressWarnings("serial")
+public class SearchFlightInfoUI extends JFrame{
 
 	private JFrame frmSearchflightinformation;
 	private JTextField departureDateField;
@@ -161,7 +162,7 @@ public class SearchFlightInfoUI {
 		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
-
+			//Create Inner class
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -173,6 +174,7 @@ public class SearchFlightInfoUI {
 				SearchFlightInfoManager sfim = new SearchFlightInfoManager();
 				sfim.getSearchFlightInfo(sfi);
 				
+				//Show GUI message to user
 				//Only checking if Departure Date Field is missing input
 				if(departureDateField.getText().equals("")) {
 					JOptionPane.showMessageDialog(frmSearchflightinformation,

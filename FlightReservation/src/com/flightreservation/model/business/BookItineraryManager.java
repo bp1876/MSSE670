@@ -4,6 +4,7 @@
 package com.flightreservation.model.business;
 
 import com.flightreservation.model.business.exception.ServiceLoadingException;
+import com.flightreservation.model.domain.BookItinerary;
 import com.flightreservation.model.domain.FlightReservationComposite;
 import com.flightreservation.model.service.bookitineraryservice.IBookItineraryService;
 import com.flightreservation.model.service.exception.InvalidBookFlightException;
@@ -52,9 +53,9 @@ public class BookItineraryManager extends Manager{
 
 	}
 
-	public boolean getBookItinerary(boolean flightBooked) {
+	public boolean getBookItinerary(BookItinerary book) {
 
-		return flightBooked;
+		return true;
 	}
 
 	public void generateStatement(FlightReservationComposite frc) {

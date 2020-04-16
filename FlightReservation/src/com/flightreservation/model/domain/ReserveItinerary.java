@@ -10,19 +10,19 @@ public class ReserveItinerary extends ListAvailableItineraryOptions implements S
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private boolean selectList;
+	private String selectList;
 
 	/**
 	 * @return the selectList
 	 */
-	public boolean isSelectList() {
+	public String isSelectList() {
 		return selectList;
 	}
 
 	/**
 	 * @param selectList the selectList to set
 	 */
-	public void setSelectList(boolean selectList) {
+	public void setSelectList(String selectList) {
 		this.selectList = selectList;
 	}
 
@@ -33,45 +33,60 @@ public class ReserveItinerary extends ListAvailableItineraryOptions implements S
 		return serialVersionUID;
 	}
 
-	// Constructor
-	public ReserveItinerary(double cost, int departureTimeOffset, int legs, boolean selectList) {
-		super(cost, departureTimeOffset, legs);
-		this.selectList = selectList;
+	
+	/**
+	 * 
+	 */
+	public ReserveItinerary() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @param cost
+	 * @param departureTimeOffset
+	 * @param legs
+	 */
+	public ReserveItinerary(String cost, String departureTimeOffset, String legs, String selectList) {
+		super(cost, departureTimeOffset, legs);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
 	// method to reserve the flight
-	public void reserveFlight() {
+	public void reserveFlight(String selectionList) {
 
-		if (selectList == true) {
+		if (selectionList.equalsIgnoreCase("Yes")) {
 
-			System.out.println("List selected to be reserved: " + selectList);
+			System.out.println("List selected to be reserved: " + selectionList);
 		}
 
 		else {
 
-			System.out.println("Flight has not been reserved: " + selectList);
+			System.out.println("Flight has not been reserved: " + selectionList);
 		}
 	}
 
 	// validate method for JUnit testing
 	public boolean validate() {
 
-		if (selectList == false)
+		if (selectList == "")
 			return false;
 
 		return true;
 	}
 
-	// overriding hashCode method
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + (selectList ? 1231 : 1237);
+		result = prime * result + ((selectList == null) ? 0 : selectList.hashCode());
 		return result;
 	}
 
-	// overriding equals method for JUnit testing
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -81,7 +96,10 @@ public class ReserveItinerary extends ListAvailableItineraryOptions implements S
 		if (getClass() != obj.getClass())
 			return false;
 		ReserveItinerary other = (ReserveItinerary) obj;
-		if (selectList != other.selectList)
+		if (selectList == null) {
+			if (other.selectList != null)
+				return false;
+		} else if (!selectList.equals(other.selectList))
 			return false;
 		return true;
 	}
@@ -94,9 +112,9 @@ public class ReserveItinerary extends ListAvailableItineraryOptions implements S
 
 	public static void main(String[] args) {
 
-		ReserveItinerary reserveflight = new ReserveItinerary(522.97, 1, 1, true);
+		//ReserveItinerary reserveflight = new ReserveItinerary("522.97", "1", "1", "true");
 
-		System.out.println(reserveflight);
+		//System.out.println(reserveflight);
 
 	}
 

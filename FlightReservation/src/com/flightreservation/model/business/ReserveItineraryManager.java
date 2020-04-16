@@ -5,6 +5,7 @@ package com.flightreservation.model.business;
 
 import com.flightreservation.model.business.exception.ServiceLoadingException;
 import com.flightreservation.model.domain.FlightReservationComposite;
+import com.flightreservation.model.domain.ReserveItinerary;
 import com.flightreservation.model.service.exception.InvalidReserveFlightException;
 import com.flightreservation.model.service.factory.Factory;
 import com.flightreservation.model.service.reserveitineraryservice.IReserveItineraryService;
@@ -51,9 +52,9 @@ public class ReserveItineraryManager extends Manager {
 
 	}
 
-	public boolean getReserveFlight(boolean reserveFlight) {
+	public boolean getReserveFlight(ReserveItinerary ri) {
 
-		return reserveFlight;
+		return true;
 	}
 
 	public void generateStatement(FlightReservationComposite frc) {

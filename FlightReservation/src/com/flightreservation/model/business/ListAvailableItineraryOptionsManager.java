@@ -5,6 +5,7 @@ package com.flightreservation.model.business;
 
 import com.flightreservation.model.business.exception.ServiceLoadingException;
 import com.flightreservation.model.domain.FlightReservationComposite;
+import com.flightreservation.model.domain.ListAvailableItineraryOptions;
 import com.flightreservation.model.service.exception.InvalidOptionsListException;
 import com.flightreservation.model.service.factory.Factory;
 import com.flightreservation.model.service.listavailableitineraryoptionsservice.IListAvailableItineraryOptionsService;
@@ -52,7 +53,7 @@ public class ListAvailableItineraryOptionsManager extends Manager {
 
 	}
 
-	public boolean getListOptions(boolean avaliableOptions) {
+	public boolean getListOptions(ListAvailableItineraryOptions laio) {
 
 		return true;
 	}

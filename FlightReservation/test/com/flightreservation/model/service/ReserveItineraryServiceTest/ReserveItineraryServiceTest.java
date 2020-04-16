@@ -29,8 +29,8 @@ public class ReserveItineraryServiceTest extends TestCase {
 
 		
 
-		reserveflight1 = new ReserveItinerary(522.97, 1, 1, true);
-		reserveflight2 = new ReserveItinerary(522.97, 1, 1, true);
+		reserveflight1 = new ReserveItinerary("522.97", "1", "1", "true");
+		reserveflight2 = new ReserveItinerary("522.97", "1", "1", "true");
 	}
 
 	/**

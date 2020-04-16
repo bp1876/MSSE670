@@ -182,8 +182,7 @@ public class SearchFlightInformation implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	// Method to search flights by inputting desired search criteria and then saving
-	// it to a list
+	// Method to search flights by inputting desired search criteria and then adding it to a list
 	public void searchFlights(String text, String text2, String text3, String text4, String text5, String text6,
 			String text7, String text8, String text9) {
 

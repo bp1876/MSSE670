@@ -29,7 +29,7 @@ public class ListAvailableItineraryOptionsMgrTest extends TestCase{
 		super.setUp();
 	
 	
-		laio = new ListAvailableItineraryOptions(500.99, 1, 1);
+		laio = new ListAvailableItineraryOptions("500.99", "1", "1");
 	}
 	
 	

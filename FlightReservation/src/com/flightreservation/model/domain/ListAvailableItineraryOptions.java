@@ -11,51 +11,51 @@ public class ListAvailableItineraryOptions implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private double cost;
+	private String cost;
 
-	private int departureTimeOffset;
+	private String departureTimeOffset;
 
-	private int legs;
+	private String legs;
 
 	/**
 	 * @return the cost
 	 */
-	public double getCost() {
+	public String getCost() {
 		return cost;
 	}
 
 	/**
 	 * @param cost the cost to set
 	 */
-	public void setCost(double cost) {
+	public void setCost(String cost) {
 		this.cost = cost;
 	}
 
 	/**
 	 * @return the departureTimeOffset
 	 */
-	public int getDepartureTimeOffset() {
+	public String getDepartureTimeOffset() {
 		return departureTimeOffset;
 	}
 
 	/**
 	 * @param departureTimeOffset the departureTimeOffset to set
 	 */
-	public void setDepartureTimeOffset(int departureTimeOffset) {
+	public void setDepartureTimeOffset(String departureTimeOffset) {
 		this.departureTimeOffset = departureTimeOffset;
 	}
 
 	/**
 	 * @return the legs
 	 */
-	public int getLegs() {
+	public String getLegs() {
 		return legs;
 	}
 
 	/**
 	 * @param legs the legs to set
 	 */
-	public void setLegs(int legs) {
+	public void setLegs(String legs) {
 		this.legs = legs;
 	}
 
@@ -67,60 +67,63 @@ public class ListAvailableItineraryOptions implements Serializable {
 	}
 
 	//Constructor 
-	public ListAvailableItineraryOptions(double cost, int departureTimeOffset, int legs) {
+	public ListAvailableItineraryOptions(String cost, String departureTimeOffset, String legs) {
 		super();
 		this.cost = cost;
 		this.departureTimeOffset = departureTimeOffset;
 		this.legs = legs;
 	}
 
-	//method to create a list of the available flight options
-	public ArrayList<Object> optionsList(double cost, int departureTimeOffset, int legs) {
+	public ListAvailableItineraryOptions() {
+		// TODO Auto-generated constructor stub
+	}
 
-		SearchFlightInformation flightinfo = new SearchFlightInformation("031920", "5am", "DEN", "032020", "1pm", "AAA",
-				"2", "false", "true");
+	//method to create a list of itinerary options
+	public void listOptions(String text, String text2, String text3) {
 
 		ArrayList<Object> list = new ArrayList<Object>();
 
-		while (flightinfo != null) {
+		ListAvailableItineraryOptions sfi = new ListAvailableItineraryOptions(cost, departureTimeOffset, legs);
 
-			list.add(flightinfo);
-			list.add(cost);
-			list.add(departureTimeOffset);
-			list.add(legs);
+		list.add(sfi);
+
+		// Currently just verifying that the departureDate field was populated for validation
+		if (text.equals("")) {
+
+			System.out.println("Invalid list options criteria entered, please try again");
+
+		} else {
+
+			System.out.println("Here is a list of the available itineraries");
 
 		}
-
-		return list;
 	}
 
 	//validate method for JUnit testing
 	public boolean validate() {
 
-		if (cost == 0.00)
+		if (cost == "")
 			return false;
-		if (departureTimeOffset > 2)
+		if (departureTimeOffset == "")
 			return false;
-		if (legs > 2)
+		if (legs == "")
 			return false;
 
 		return true;
 	}
 
-	//overriding hashCode method 
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(cost);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + departureTimeOffset;
-		result = prime * result + legs;
+		result = prime * result + ((cost == null) ? 0 : cost.hashCode());
+		result = prime * result + ((departureTimeOffset == null) ? 0 : departureTimeOffset.hashCode());
+		result = prime * result + ((legs == null) ? 0 : legs.hashCode());
 		return result;
 	}
 
-	//overriding equals method for JUnit testing
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -130,11 +133,20 @@ public class ListAvailableItineraryOptions implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ListAvailableItineraryOptions other = (ListAvailableItineraryOptions) obj;
-		if (Double.doubleToLongBits(cost) != Double.doubleToLongBits(other.cost))
+		if (cost == null) {
+			if (other.cost != null)
+				return false;
+		} else if (!cost.equals(other.cost))
 			return false;
-		if (departureTimeOffset != other.departureTimeOffset)
+		if (departureTimeOffset == null) {
+			if (other.departureTimeOffset != null)
+				return false;
+		} else if (!departureTimeOffset.equals(other.departureTimeOffset))
 			return false;
-		if (legs != other.legs)
+		if (legs == null) {
+			if (other.legs != null)
+				return false;
+		} else if (!legs.equals(other.legs))
 			return false;
 		return true;
 	}
@@ -148,9 +160,9 @@ public class ListAvailableItineraryOptions implements Serializable {
 
 	public static void main(String[] args) {
 
-		ListAvailableItineraryOptions optionsList = new ListAvailableItineraryOptions(500.99, 1, 1);
+		//ListAvailableItineraryOptions optionsList = new ListAvailableItineraryOptions(500.99, 1, 1);
 
-		System.out.println(optionsList);
+		//System.out.println(optionsList);
 	}
 
 }

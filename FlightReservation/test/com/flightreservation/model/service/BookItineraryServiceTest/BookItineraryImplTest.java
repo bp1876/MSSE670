@@ -25,7 +25,7 @@ public class BookItineraryImplTest extends TestCase {
 
 		serviceFactory = Factory.getInstance();
 
-		book = new BookItinerary(588.10, 1, 1, true, true);
+		book = new BookItinerary("588.10", "1", "1", "true", "true");
 		frc.setBook(book);
 	}
 

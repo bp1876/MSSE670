@@ -10,7 +10,7 @@ public class ListAvailableItineraryOptionsTest {
 	@Test
 	public void testValidates() {
 		
-		ListAvailableItineraryOptions optionsList = new ListAvailableItineraryOptions(500.99, 1, 1);
+		ListAvailableItineraryOptions optionsList = new ListAvailableItineraryOptions("500.99", "1", "1");
 		
 		//Testing that the arguments passed are valid
 		assertTrue(optionsList.validate(), "optionsList Validates");
@@ -22,7 +22,7 @@ public class ListAvailableItineraryOptionsTest {
 	@Test
 	public void testNotValidates() {
 		
-		ListAvailableItineraryOptions optionsList = new ListAvailableItineraryOptions(500.99, 3, 3);
+		ListAvailableItineraryOptions optionsList = new ListAvailableItineraryOptions("500.99", "3", "3");
 		
 		//Testing that the arguments passed are invalid 
 		assertFalse(optionsList.validate(), "optionsList does not validate");
@@ -34,8 +34,8 @@ public class ListAvailableItineraryOptionsTest {
 	@Test
 	public void testEquals() {
 		
-		ListAvailableItineraryOptions optionsList1 = new ListAvailableItineraryOptions(500.99, 1, 1);
-		ListAvailableItineraryOptions optionsList2 = new ListAvailableItineraryOptions(500.99, 1, 1);
+		ListAvailableItineraryOptions optionsList1 = new ListAvailableItineraryOptions("500.99", "1", "1");
+		ListAvailableItineraryOptions optionsList2 = new ListAvailableItineraryOptions("500.99", "1", "1");
 		
 		//Testing that the arguments for both objects are a match
 		assertTrue(optionsList1.equals(optionsList2), "optionsList1 equals optionsList2");
@@ -46,8 +46,8 @@ public class ListAvailableItineraryOptionsTest {
 	@Test
 	public void testNotEquals() {
 		
-		ListAvailableItineraryOptions optionsList1 = new ListAvailableItineraryOptions(500.99, 1, 1);
-		ListAvailableItineraryOptions optionsList2 = new ListAvailableItineraryOptions(99.10, 1, 1);
+		ListAvailableItineraryOptions optionsList1 = new ListAvailableItineraryOptions("500.99", "1", "1");
+		ListAvailableItineraryOptions optionsList2 = new ListAvailableItineraryOptions("99.10", "1", "1");
 		
 		//Testing that the arguments for both objects are not a match
 		assertFalse(optionsList1.equals(optionsList2), "optionsList1 does not equal optionsList2");

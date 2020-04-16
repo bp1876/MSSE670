@@ -29,8 +29,8 @@ public class ListAvailableItineraryOptionsServiceTest extends TestCase {
 
 	
 
-		optionsList1 = new ListAvailableItineraryOptions(500.99, 1, 1);
-		optionsList2 = new ListAvailableItineraryOptions(500.99, 1, 1);
+		optionsList1 = new ListAvailableItineraryOptions("500.99", "1", "1");
+		optionsList2 = new ListAvailableItineraryOptions("500.99", "1", "1");
 	}
 
 	/**

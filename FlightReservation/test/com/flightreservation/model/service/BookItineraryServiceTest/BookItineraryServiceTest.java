@@ -27,8 +27,8 @@ public class BookItineraryServiceTest extends TestCase {
 
 		
 		
-		book1 = new BookItinerary(588.10, 1, 1, true, true);
-		book2 = new BookItinerary(588.10, 1, 1, true, true);
+		book1 = new BookItinerary("588.10", "1", "1", "true", "true");
+		book2 = new BookItinerary("588.10", "1", "1", "true", "true");
 	}
 
 	/**

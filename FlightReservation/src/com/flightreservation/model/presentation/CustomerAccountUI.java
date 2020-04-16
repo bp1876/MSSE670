@@ -125,6 +125,7 @@ public class CustomerAccountUI extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				//Create Inner class
 				CustomerAccount ca = new CustomerAccount();
 				ca.registerCustomer(nameField.getText(), addressField.getText(), emailField.getText(),
 						cc16NumField.getText(), ccExpireDateField.getText(), userNameField.getText(),
@@ -133,6 +134,7 @@ public class CustomerAccountUI extends JFrame {
 				cam.getCustomerAccount(nameField, addressField, emailField, cc16NumField, ccExpireDateField,
 						userNameField, passwordField);
 
+				//Show GUI message to user
 				if ((nameField.getText().equals("")) & (addressField.getText().equals(""))
 						& (emailField.getText().equals("")) & (cc16NumField.getText().equals(""))
 						& (ccExpireDateField.getText().equals("")) & (userNameField.getText().equals(""))

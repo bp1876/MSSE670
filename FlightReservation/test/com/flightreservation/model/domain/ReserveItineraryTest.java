@@ -11,7 +11,7 @@ public class ReserveItineraryTest {
 	@Test
 	public void testValidates() {
 		
-		ReserveItinerary reserveflight = new ReserveItinerary(522.97, 1, 1, true);
+		ReserveItinerary reserveflight = new ReserveItinerary("522.97", "1", "1", "true");
 		
 		//Testing that the arguments passed are valid
 		assertTrue(reserveflight.validate(), "reserveflight validates");
@@ -22,7 +22,7 @@ public class ReserveItineraryTest {
 	@Test
 	public void testNotValidates() {
 		
-		ReserveItinerary reserveflight = new ReserveItinerary(522.97, 1, 1, false);
+		ReserveItinerary reserveflight = new ReserveItinerary("522.97", "1", "1", "false");
 		
 		//Testing that the arguments passed are invalid
 		assertFalse(reserveflight.validate(), "reserveflight does not validate");
@@ -33,8 +33,8 @@ public class ReserveItineraryTest {
 	@Test 
 	public void testEquals() {
 		
-		ReserveItinerary reserveflight1 = new ReserveItinerary(522.97, 1, 1, true);
-		ReserveItinerary reserveflight2 = new ReserveItinerary(522.97, 1, 1, true);
+		ReserveItinerary reserveflight1 = new ReserveItinerary("522.97", "1", "1", "true");
+		ReserveItinerary reserveflight2 = new ReserveItinerary("522.97", "1", "1", "true");
 		
 		//Testing that the arguments for both objects are a match
 		assertTrue(reserveflight1.equals(reserveflight2), "reserveflight1 equals reserveflight2");
@@ -45,8 +45,8 @@ public class ReserveItineraryTest {
 	@Test 
 	public void testNotEquals() {
 		
-		ReserveItinerary reserveflight1 = new ReserveItinerary(522.97, 1, 1, true);
-		ReserveItinerary reserveflight2 = new ReserveItinerary(1.99, 1, 1, true);
+		ReserveItinerary reserveflight1 = new ReserveItinerary("522.97", "1", "1", "true");
+		ReserveItinerary reserveflight2 = new ReserveItinerary("522.97", "1", "1", "true");
 		
 		//Testing that the arguments for both objects are not a match
 		assertFalse(reserveflight1.equals(reserveflight2), "reserveflight1 does not equal reserveflight2");
