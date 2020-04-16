@@ -11,8 +11,8 @@ import java.util.regex.Pattern;
 public class CustomerAccount implements Serializable {
 
 	/**
-	 * The following are the class instance and instance variables that are needed for the class 
-	 * as outlined in the Class Diagram
+	 * The following are the class instance and instance variables that are needed
+	 * for the class as outlined in the Class Diagram
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -22,9 +22,9 @@ public class CustomerAccount implements Serializable {
 
 	private String email;
 
-	private int creditCardSixteenNumber;
+	private String creditCardSixteenNumber;
 
-	private int creditCardExpireDate;
+	private String creditCardExpireDate;
 
 	private String userName;
 
@@ -36,7 +36,7 @@ public class CustomerAccount implements Serializable {
 
 	/**
 	 * 
-	 * @param  set name
+	 * @param set name
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -73,11 +73,12 @@ public class CustomerAccount implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	/**
 	 * 
 	 * @return get the 16 digit credit card number
 	 */
-	public int getCreditCardSixteenNumber() {
+	public String getCreditCardSixteenNumber() {
 		return creditCardSixteenNumber;
 	}
 
@@ -85,15 +86,15 @@ public class CustomerAccount implements Serializable {
 	 * 
 	 * @param set creditCardSixteenNumber
 	 */
-	public void setCreditCardSixteenNumber(int creditCardSixteenNumber) {
+	public void setCreditCardSixteenNumber(String creditCardSixteenNumber) {
 		this.creditCardSixteenNumber = creditCardSixteenNumber;
 	}
-	
+
 	/**
 	 * 
 	 * @return get the 4 digit credit card expire date
 	 */
-	public int getCreditCardExpireDate() {
+	public String getCreditCardExpireDate() {
 		return creditCardExpireDate;
 	}
 
@@ -101,10 +102,10 @@ public class CustomerAccount implements Serializable {
 	 * 
 	 * @param set creditCardExpireDate
 	 */
-	public void setCreditCardExpireDate(int creditCardExpireDate) {
+	public void setCreditCardExpireDate(String creditCardExpireDate) {
 		this.creditCardExpireDate = creditCardExpireDate;
 	}
-	
+
 	/**
 	 * 
 	 * @return userName
@@ -139,13 +140,13 @@ public class CustomerAccount implements Serializable {
 
 	/**
 	 * 
-	 * @return get Serial version id 
+	 * @return get Serial version id
 	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	//validate method for JUnit testing
+	// validate method for JUnit testing
 	public boolean validate() {
 
 		if (name == "")
@@ -154,9 +155,9 @@ public class CustomerAccount implements Serializable {
 			return false;
 		if (email == "")
 			return false;
-		if (creditCardSixteenNumber == 0)
+		if (creditCardSixteenNumber == "")
 			return false;
-		if (creditCardExpireDate == 0)
+		if (creditCardExpireDate == "")
 			return false;
 		if (userName == "")
 			return false;
@@ -168,6 +169,7 @@ public class CustomerAccount implements Serializable {
 
 	/**
 	 * Constructor for:
+	 * 
 	 * @param name
 	 * @param address
 	 * @param email
@@ -176,8 +178,8 @@ public class CustomerAccount implements Serializable {
 	 * @param userName
 	 * @param password
 	 */
-	public CustomerAccount(String name, String address, String email, int creditCardSixteenNumber,
-			int creditCardExpireDate, String userName, String password) {
+	public CustomerAccount(String name, String address, String email, String creditCardSixteenNumber,
+			String creditCardExpireDate, String userName, String password) {
 		super();
 		this.name = name;
 		this.address = address;
@@ -188,40 +190,17 @@ public class CustomerAccount implements Serializable {
 		this.password = password;
 	}
 
-	//method to register customer into Serializable 
-	public void registerCustomer() {
-
-		CustomerAccount ca = new CustomerAccount(name, address, email, creditCardExpireDate, creditCardExpireDate,
-				userName, password);
-
-		ArrayList<CustomerAccount> list = new ArrayList<CustomerAccount>();
-
-		list.add(ca);
-
+	public CustomerAccount() {
+		// TODO Auto-generated constructor stub
 	}
 
-	//method to register credit card information into Serializable
-	public void registerCreditCardInformation(int creditCardSixteenNumber, int creditCardExpireDate) {
-
-		Pattern num = Pattern.compile("(creditCardSixteenNumber)( \\d{16})");
-
-		Pattern expire = Pattern.compile("(creditCardExpireDate)( \\d{4})");
-
-		ArrayList<Pattern> list = new ArrayList<Pattern>();
-
-		list.add(num);
-		list.add(expire);
-
-	}
-
-	//overriding hashCode method
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
-		result = prime * result + creditCardExpireDate;
-		result = prime * result + creditCardSixteenNumber;
+		result = prime * result + ((creditCardExpireDate == null) ? 0 : creditCardExpireDate.hashCode());
+		result = prime * result + ((creditCardSixteenNumber == null) ? 0 : creditCardSixteenNumber.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -229,7 +208,6 @@ public class CustomerAccount implements Serializable {
 		return result;
 	}
 
-	//overriding equals method for JUnit testing
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -244,9 +222,15 @@ public class CustomerAccount implements Serializable {
 				return false;
 		} else if (!address.equals(other.address))
 			return false;
-		if (creditCardExpireDate != other.creditCardExpireDate)
+		if (creditCardExpireDate == null) {
+			if (other.creditCardExpireDate != null)
+				return false;
+		} else if (!creditCardExpireDate.equals(other.creditCardExpireDate))
 			return false;
-		if (creditCardSixteenNumber != other.creditCardSixteenNumber)
+		if (creditCardSixteenNumber == null) {
+			if (other.creditCardSixteenNumber != null)
+				return false;
+		} else if (!creditCardSixteenNumber.equals(other.creditCardSixteenNumber))
 			return false;
 		if (email == null) {
 			if (other.email != null)
@@ -271,7 +255,7 @@ public class CustomerAccount implements Serializable {
 		return true;
 	}
 
-	//toString method for printing the object
+	// toString method for prStringing the object
 	@Override
 	public String toString() {
 		return "CustomerAccount [name=" + name + ", address=" + address + ", email=" + email
@@ -281,9 +265,32 @@ public class CustomerAccount implements Serializable {
 
 	public static void main(String[] args) {
 
-		CustomerAccount customer = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+		// CustomerAccount customer = new CustomerAccount("brenda", "1234 place",
+		// "me@aol.com", 16, 4, "user", "pass");
 
-		System.out.println(customer);
+		// System.out.prStringln(customer);
 	}
 
+	public void registerCustomer(String text, String text2, String text3, String string, String string2, String text6,
+			String text7) {
+
+		ArrayList<Object> list = new ArrayList<Object>();
+
+		CustomerAccount newCustomer = new CustomerAccount(name, address, email, creditCardSixteenNumber,
+				creditCardExpireDate, userName, password);
+
+		list.add(newCustomer);
+
+		//Currently just verifying that the name field was populated for validation
+		if (text.equals("")) {
+
+			System.out.println("Customer not created");
+
+		} else {
+
+			System.out.println("Customer Successfully created");
+
+		}
+
+	}
 }

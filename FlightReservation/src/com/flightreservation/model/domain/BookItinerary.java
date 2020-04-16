@@ -48,8 +48,8 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 
 			// In order to complete the booking process, credit card information has to be
 			// added
-			CustomerAccount ca = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
-			ca.registerCreditCardInformation(16, 4);
+			//CustomerAccount ca = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+			//ca.registerCreditCardInformation(16, 4);
 
 		}
 	}

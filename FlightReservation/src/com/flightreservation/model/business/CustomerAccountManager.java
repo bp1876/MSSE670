@@ -3,7 +3,10 @@
  */
 package com.flightreservation.model.business;
 
+import javax.swing.JTextField;
+
 import com.flightreservation.model.business.exception.ServiceLoadingException;
+import com.flightreservation.model.domain.CustomerAccount;
 import com.flightreservation.model.domain.FlightReservationComposite;
 import com.flightreservation.model.service.customeraccountservice.ICustomerAccountService;
 import com.flightreservation.model.service.exception.InvalidCreditCardException;
@@ -51,13 +54,19 @@ public class CustomerAccountManager extends Manager {
 
 	}
 
-	public int getCustomerAccount(int creditcardinfo) {
+	public int getCustomerAccount(CustomerAccount ca2) {
 
 		return ca;
 	}
 
 	public void generateStatement(FlightReservationComposite frc) {
 
+	}
+
+	public boolean getCustomerAccount(JTextField nameField, JTextField addressField, JTextField emailField,
+			JTextField cc16NumField, JTextField ccExpireDateField, JTextField userNameField, JTextField passwordField) {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 }
