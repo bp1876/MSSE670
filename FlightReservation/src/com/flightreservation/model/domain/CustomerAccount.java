@@ -2,7 +2,7 @@ package com.flightreservation.model.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
+
 
 /**
  * @author Brenda Palmer

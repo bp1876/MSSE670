@@ -46,7 +46,7 @@ public class CustomerAccountMgrTest extends TestCase {
 	public void setUp() throws Exception {
 		super.setUp();
 
-		ca = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+		ca = new CustomerAccount("brenda", "1234 place", "me@aol.com", "16", "4", "user", "pass");
 
 	}
 

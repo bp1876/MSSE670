@@ -16,6 +16,7 @@ import com.flightreservation.model.domain.CustomerAccount;
 import javax.swing.JButton;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
+@SuppressWarnings("serial")
 public class CustomerAccountUI extends JFrame {
 
 	private JFrame frmCustomeraccount;

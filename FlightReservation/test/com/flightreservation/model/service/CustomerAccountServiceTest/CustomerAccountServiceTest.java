@@ -28,8 +28,8 @@ public class CustomerAccountServiceTest extends TestCase {
 
 	
 
-		customeraccount1 = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
-		customeraccount2 = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+		customeraccount1 = new CustomerAccount("brenda", "1234 place", "me@aol.com", "16", "4", "user", "pass");
+		customeraccount2 = new CustomerAccount("brenda", "1234 place", "me@aol.com", "16", "4", "user", "pass");
 	}
 
 	/**

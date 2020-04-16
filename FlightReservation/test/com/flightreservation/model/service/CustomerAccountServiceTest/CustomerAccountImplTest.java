@@ -32,7 +32,7 @@ public class CustomerAccountImplTest extends TestCase {
 
 		serviceFactory = Factory.getInstance();
 
-		ca = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+		ca = new CustomerAccount("brenda", "1234 place", "me@aol.com", "16", "4", "user", "pass");
 
 		frc.setCa(ca);
 	}

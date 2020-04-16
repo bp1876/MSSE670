@@ -10,7 +10,7 @@ public class CustomerAccountTest {
 	@Test
 	public void testValidates() {
 
-		CustomerAccount customer = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+		CustomerAccount customer = new CustomerAccount("brenda", "1234 place", "me@aol.com", "16", "4", "user", "pass");
 
 		// Testing that the arguments passed are valid
 		assertTrue(customer.validate(), "Customer validates");
@@ -22,7 +22,7 @@ public class CustomerAccountTest {
 	@Test
 	public void testNotValidates() {
 
-		CustomerAccount customer = new CustomerAccount("", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+		CustomerAccount customer = new CustomerAccount("", "1234 place", "me@aol.com", "16", "4", "user", "pass");
 
 		// Testing that the arguments passed are invalid
 		assertFalse(customer.validate(), "Customer does not validate");
@@ -34,8 +34,8 @@ public class CustomerAccountTest {
 	@Test
 	public void testEqualsCustomerAccount() {
 
-		CustomerAccount customer1 = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
-		CustomerAccount customer2 = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+		CustomerAccount customer1 = new CustomerAccount("brenda", "1234 place", "me@aol.com", "16", "4", "user", "pass");
+		CustomerAccount customer2 = new CustomerAccount("brenda", "1234 place", "me@aol.com", "16", "4", "user", "pass");
 
 		// Testing that the arguments for both objects are a match
 		assertTrue(customer1.equals(customer2), "customer1 equals customer2");
@@ -46,8 +46,8 @@ public class CustomerAccountTest {
 	@Test
 	public void testNotEqualsCustomerAccount() {
 
-		CustomerAccount customer1 = new CustomerAccount("brenda", "1234 place", "me@aol.com", 16, 4, "user", "pass");
-		CustomerAccount customer2 = new CustomerAccount("fred", "1234 place", "me@aol.com", 16, 4, "user", "pass");
+		CustomerAccount customer1 = new CustomerAccount("brenda", "1234 place", "me@aol.com", "16", "4", "user", "pass");
+		CustomerAccount customer2 = new CustomerAccount("fred", "1234 place", "me@aol.com", "16", "4", "user", "pass");
 
 		// Testing that the arguments for both objects are not a match
 		assertFalse(customer1.equals(customer2), "customer1 does not equals customer2");

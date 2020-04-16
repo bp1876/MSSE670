@@ -15,6 +15,7 @@ import com.flightreservation.model.domain.Login;
 
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class LoginUI extends JFrame {
 	
 	
