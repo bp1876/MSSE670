@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -15,9 +16,8 @@ import com.flightreservation.model.domain.CustomerAccount;
 
 import javax.swing.JButton;
 
-
 @SuppressWarnings("serial")
-public class CustomerAccountUI extends JFrame {
+public class CustomerAccountUI extends JInternalFrame {
 
 	private JFrame frmCustomeraccount;
 	private JTextField nameField;
@@ -31,7 +31,7 @@ public class CustomerAccountUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -125,7 +125,7 @@ public class CustomerAccountUI extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				//Create Inner class
+				// Create Inner class
 				CustomerAccount ca = new CustomerAccount();
 				ca.registerCustomer(nameField.getText(), addressField.getText(), emailField.getText(),
 						cc16NumField.getText(), ccExpireDateField.getText(), userNameField.getText(),
@@ -134,7 +134,7 @@ public class CustomerAccountUI extends JFrame {
 				cam.getCustomerAccount(nameField, addressField, emailField, cc16NumField, ccExpireDateField,
 						userNameField, passwordField);
 
-				//Show GUI message to user
+				// Show GUI message to user
 				if ((nameField.getText().equals("")) & (addressField.getText().equals(""))
 						& (emailField.getText().equals("")) & (cc16NumField.getText().equals(""))
 						& (ccExpireDateField.getText().equals("")) & (userNameField.getText().equals(""))
@@ -149,7 +149,7 @@ public class CustomerAccountUI extends JFrame {
 			}
 
 		});
-		
+
 		btnSubmit.setBounds(334, 270, 89, 23);
 		frmCustomeraccount.getContentPane().add(btnSubmit);
 
@@ -161,5 +161,9 @@ public class CustomerAccountUI extends JFrame {
 		emailField.setBounds(72, 74, 124, 20);
 		frmCustomeraccount.getContentPane().add(emailField);
 		emailField.setColumns(10);
+
+		pack();
+		setVisible(true);
+
 	}
 }
