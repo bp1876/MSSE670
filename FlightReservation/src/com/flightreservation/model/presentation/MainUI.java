@@ -57,13 +57,16 @@ public class MainUI extends JFrame {
 		JMenu mnNewMenu = new JMenu("Menu");
 		menuBar.add(mnNewMenu);
 
+		//The following JMenuItems have been written to add the 6 use cases to the Menu and then to call their methods
+		//to launch each internal frame when they are selected from the menu.  Also added an exit to the menu
+		
 		JMenuItem loginui = new JMenuItem("Login");
 		loginui.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				LoginUI login = new LoginUI();
-
+				//Call the method to launch the GUI
 				login.main(null);
 				login.setVisible(true);
 
@@ -79,7 +82,7 @@ public class MainUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				CustomerAccountUI ca = new CustomerAccountUI();
-
+				//Call the method to launch the GUI
 				ca.main(null);
 				ca.setVisible(true);
 
@@ -95,7 +98,7 @@ public class MainUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				SearchFlightInfoUI sfi = new SearchFlightInfoUI();
-
+				//Call the method to launch the GUI
 				sfi.main(null);
 				sfi.setVisible(true);
 
@@ -111,7 +114,7 @@ public class MainUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				ListAvailableItineraryOptionsUI listOptions = new ListAvailableItineraryOptionsUI();
-
+				//Call the method to launch the GUI
 				listOptions.main(null);
 				listOptions.setVisible(true);
 
@@ -127,7 +130,7 @@ public class MainUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				ReserveItineraryUI ri = new ReserveItineraryUI();
-
+				//Call the method to launch the GUI
 				ri.main(null);
 				ri.setVisible(true);
 
@@ -143,7 +146,7 @@ public class MainUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				BookItineraryUI book = new BookItineraryUI();
-
+				//Call the method to launch the GUI
 				book.main(null);
 				book.setVisible(true);
 
