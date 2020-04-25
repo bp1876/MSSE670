@@ -1,5 +1,9 @@
 package com.flightreservation.model.service.factory;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import com.flightreservation.model.business.exception.ServiceLoadingException;
 import com.flightreservation.model.service.IService;
 
@@ -42,7 +46,7 @@ public class Factory {
 	 * @throws Exception
 	 */
 	private String getImplName(String svcName) throws Exception {
-
+		
 		java.util.Properties propFile = new java.util.Properties();
 
 		String propertyFile = System.getProperty("prop_location");
@@ -53,5 +57,6 @@ public class Factory {
 		propFile.load(fis);
 		fis.close();
 		return propFile.getProperty(svcName);
+		
 	}
 }

@@ -22,7 +22,7 @@ public class ListAvailableItineraryOptionsTest {
 	@Test
 	public void testNotValidates() {
 		
-		ListAvailableItineraryOptions optionsList = new ListAvailableItineraryOptions("500.99", "3", "3");
+		ListAvailableItineraryOptions optionsList = new ListAvailableItineraryOptions("500.99", "3", "");
 		
 		//Testing that the arguments passed are invalid 
 		assertFalse(optionsList.validate(), "optionsList does not validate");

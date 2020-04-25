@@ -47,8 +47,8 @@ public class ReserveItinerary extends ListAvailableItineraryOptions implements S
 	 * @param departureTimeOffset
 	 * @param legs
 	 */
-	public ReserveItinerary(String cost, String departureTimeOffset, String legs, String selectList) {
-		super(cost, departureTimeOffset, legs);
+	public ReserveItinerary(String selectList) {
+		this.selectList = selectList;
 		// TODO Auto-generated constructor stub
 	}
 

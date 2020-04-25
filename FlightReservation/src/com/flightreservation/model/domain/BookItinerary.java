@@ -34,10 +34,20 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	
+
+	/**
+	 * @param cost
+	 * @param departureTimeOffset
+	 * @param legs
+	 * @param selectList
+	 */
+	
 
 	//Constructor that also includes parent classes fields
-	public BookItinerary(String cost, String departureTimeOffset, String legs, String selectList, String flightBooked) {
-		super(cost, departureTimeOffset, legs, selectList);
+	public BookItinerary(String flightBooked) {
+		
 		this.flightBooked = flightBooked;
 	}
 
@@ -64,6 +74,7 @@ public class BookItinerary extends ReserveItinerary implements Serializable {
 
 		if (flightBooked == "")
 			return false;
+			
 
 		return true;
 	}

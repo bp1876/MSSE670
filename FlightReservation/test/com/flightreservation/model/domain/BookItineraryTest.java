@@ -10,7 +10,7 @@ public class BookItineraryTest {
 	@Test
 	public void testValidates() {
 
-		BookItinerary book = new BookItinerary("588.10", "1", "1", "true", "true");
+		BookItinerary book = new BookItinerary("true");
 
 		//Testing that the arguments passed are valid
 		assertTrue(book.validate(), "book validates");
@@ -22,7 +22,7 @@ public class BookItineraryTest {
 	@Test
 	public void testNotValidates() {
 
-		BookItinerary book = new BookItinerary("588.10", "1", "1", "true", "true");
+		BookItinerary book = new BookItinerary("");
 
 		//Testing that the arguments passed are invalid 
 		assertFalse(book.validate(), "book does not validate");
@@ -34,8 +34,8 @@ public class BookItineraryTest {
 	@Test
 	public void testEquals() {
 		
-		BookItinerary book1 = new BookItinerary("588.10", "1", "1", "true", "true");
-		BookItinerary book2 = new BookItinerary("588.10", "1", "1", "true", "true");
+		BookItinerary book1 = new BookItinerary("true");
+		BookItinerary book2 = new BookItinerary("true");
 		
 		//Testing that the arguments for both objects are a match
 		assertTrue(book1.equals(book2), "book1 equals book2");
@@ -46,8 +46,8 @@ public class BookItineraryTest {
 	@Test
 	public void testNotEquals() {
 		
-		BookItinerary book1 = new BookItinerary("588.10", "1", "1", "true", "true");
-		BookItinerary book2 = new BookItinerary("588.10", "1", "1", "true", "true");
+		BookItinerary book1 = new BookItinerary("true");
+		BookItinerary book2 = new BookItinerary("false");
 		
 		//Testing that the arguments for both objects are not a match
 		assertFalse(book1.equals(book2), "book1 does not equal book2");
