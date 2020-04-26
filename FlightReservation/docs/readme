@@ -1,0 +1,4 @@
+In order for build.xml Ant to work correctly, the MyApp.jar file needs to be imported.
+To do this right click project explorer in eclipse and click import and select 
+executable jar file.  Then make auto generate build.xml including MyApp jar project.
+I also copied and pasted config folder and manifest.txt file
